@@ -14,12 +14,12 @@ export class AppComponent implements IAppComponent {
   title: string = 'basic-angular7';
 
   constructor() {
-    const myClass = new MyClass();
-    const mySimpleClass = new MySimpleClass();
+    // const myClass = new MyClass();
+    // const mySimpleClass = new MySimpleClass();
 
-    console.log(myClass);
-    console.log(myClass.squName);
-    console.log(mySimpleClass.title);
+    // console.log(myClass);
+    // console.log(myClass.squName);
+    // console.log(mySimpleClass.title);
 
   }
 
