@@ -10,11 +10,9 @@ export class AppComponent implements IAppComponent {
   title: string = 'basic-angular7';
 
   constructor() {
-    // const myClass = new MyClass();
-    // console.log(myClass.arrays);
-    this.addItem("Hello");
-    this.addItem("World");
-    console.log(this.items);
+    const myClass = new MyClass();
+    console.log(myClass);
+
   }
 
   addItem(item: string) {
@@ -26,6 +24,7 @@ export class AppComponent implements IAppComponent {
 
 }
 
+@MyDecorator
 class MyClass {
   arrays: number[] = [200, 300, 400, 500];
   objects = { firstname: 'My Firstname', lastname: 'My Lastname' };
@@ -51,4 +50,8 @@ interface IAppComponent {
   items: Array<string>;
   addItem(item: string);
   removeItem(index: number);
+}
+
+function MyDecorator(target: any){
+  console.log(target);
 }
