@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 
 import { Component } from '@angular/core';
 
