@@ -23,9 +23,9 @@ export class AppComponent implements IAppComponent {
     // console.log(myClass.squName);
     // console.log(mySimpleClass.title);
 
-    console.log(configs);
-    console.log(configs.target);
-    console.log(configs.address);
+    // console.log(configs);
+    // console.log(configs.target);
+    // console.log(configs.address);
 
   }
 
