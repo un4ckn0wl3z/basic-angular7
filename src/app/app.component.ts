@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 
 import { Component } from '@angular/core';
 
@@ -18,6 +19,8 @@ export class AppComponent {
   alertClass: string = 'alert alert-primary';
   isSuccessClass:boolean = true;
 
+  isShowHideAlert:boolean = false;
+
   constructor() {
     setTimeout(() => {
       this.styleColor = 'red';
@@ -27,6 +30,11 @@ export class AppComponent {
     }, 1000);
   }
 
+  onClick(element: any){
+    this.isShowHideAlert = !this.isShowHideAlert;
+    console.log(element);
+    console.log('Click by angular');
+  }
 
 }
 
