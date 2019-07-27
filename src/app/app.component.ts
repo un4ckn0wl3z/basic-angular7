@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IAppComponent } from './my-simple/app.interface';
+import { MyDecorator } from './my-simple/my.decorator';
+import { MyClass } from './my-simple/my.class';
 
 @Component({
   selector: 'app-root',
@@ -25,38 +28,9 @@ export class AppComponent implements IAppComponent {
 
 }
 
-@MyDecorator('Hello World',"This is NG7","CC")
-class MyClass {
-  arrays: number[] = [200, 300, 400, 500];
-  objects = { firstname: 'My Firstname', lastname: 'My Lastname' };
-  squName: string;
-  onFunction(param: string): string {
-    return `onFunction ${param}`;
-  }
-
-  get onGetFunction(): string {
-    const sum = 2 + 2 + 2 * 2;
-    return `onGetFunction ${sum}`;
-  }
-
-  constructor() {
-    this.arrays.push(600);
-    this.arrays.push(700);
-  }
-
-}
 
 
-interface IAppComponent {
-  items: Array<string>;
-  addItem(item: string);
-  removeItem(index: number);
-}
 
-function MyDecorator(message: string,msg: string,cc: string){
-  return function(target: Function){
-    target.prototype.sayHello = message;
-    target.prototype.ng7 = msg;
-    target.prototype.squName = cc;
-  }
-}
+
+
+
