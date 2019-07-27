@@ -11,9 +11,7 @@ export class AppComponent {
   title: string = 'Basic Angular 7 is ez.';
 
   constructor() {
-
     setTimeout(() => this.title = 'คอร์สพื้นฐาน Angular 7 ง่ายมาก', 1000);
-
   }
 
 
