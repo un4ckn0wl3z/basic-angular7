@@ -12,6 +12,7 @@ export class AppComponent implements IAppComponent {
   constructor() {
     const myClass = new MyClass();
     console.log(myClass);
+    console.log(myClass.squName);
 
   }
 
@@ -24,11 +25,11 @@ export class AppComponent implements IAppComponent {
 
 }
 
-@MyDecorator('Hello World')
+@MyDecorator('Hello World',"This is NG7","CC")
 class MyClass {
   arrays: number[] = [200, 300, 400, 500];
   objects = { firstname: 'My Firstname', lastname: 'My Lastname' };
-
+  squName: string;
   onFunction(param: string): string {
     return `onFunction ${param}`;
   }
@@ -52,8 +53,10 @@ interface IAppComponent {
   removeItem(index: number);
 }
 
-function MyDecorator(message: string){
+function MyDecorator(message: string,msg: string,cc: string){
   return function(target: Function){
     target.prototype.sayHello = message;
+    target.prototype.ng7 = msg;
+    target.prototype.squName = cc;
   }
 }
