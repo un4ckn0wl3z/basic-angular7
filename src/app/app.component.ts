@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { IAppComponent } from './my-simple/app.interface';
 import { MyDecorator } from './my-simple/my.decorator';
 import { MyClass } from './my-simple/my.class';
+declare const configs;
+
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,8 @@ export class AppComponent implements IAppComponent {
     // console.log(myClass);
     // console.log(myClass.squName);
     // console.log(mySimpleClass.title);
+
+    console.log(configs);
 
   }
 
