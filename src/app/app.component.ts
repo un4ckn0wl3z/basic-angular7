@@ -1,3 +1,4 @@
+import { MySimpleClass } from './my-simple/my-simple.class';
 import { Component } from '@angular/core';
 import { IAppComponent } from './my-simple/app.interface';
 import { MyDecorator } from './my-simple/my.decorator';
@@ -14,8 +15,11 @@ export class AppComponent implements IAppComponent {
 
   constructor() {
     const myClass = new MyClass();
+    const mySimpleClass = new MySimpleClass();
+
     console.log(myClass);
     console.log(myClass.squName);
+    console.log(mySimpleClass.title);
 
   }
 
