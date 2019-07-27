@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { IAppComponent } from './my-simple/app.interface';
 import { MyDecorator } from './my-simple/my.decorator';
 import { MyClass } from './my-simple/my.class';
-declare const configs;
+
 
 
 @Component({
@@ -24,6 +24,8 @@ export class AppComponent implements IAppComponent {
     // console.log(mySimpleClass.title);
 
     console.log(configs);
+    console.log(configs.target);
+    console.log(configs.address);
 
   }
 
