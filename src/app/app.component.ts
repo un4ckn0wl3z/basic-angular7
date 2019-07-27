@@ -36,6 +36,10 @@ export class AppComponent {
     console.log('Click by angular');
   }
 
+  onTextChange(text: string){
+    this.header = text;
+  }
+
 }
 
 

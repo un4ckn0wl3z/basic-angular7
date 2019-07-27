@@ -2,7 +2,7 @@
   <br>
 
   <div class="card" [id]="boxId">
-    <div class="card-header">
+    <div class="card-header" (mouseover)="onTextChange('พื้นฐาน แองกูล่า 7')" (mouseout)="onTextChange('Basic Angular 7')">
       {{header}}
     </div>
     <div class="card-body">
