@@ -25,9 +25,10 @@
       <span> | </span>
       <button class="btn btn-warning" (click)="onClick($event)">Event Button</button>
 
+      <!-- [value]="title" (keyup)="onChangeTitle($event.target)" -->
       <div class="mt-3 form-group">
         <label for="">Input data: </label>
-        <input class="form-control w-25" type="text" [value]="title" (keyup)="onChangeTitle($event.target)">
+        <input class="form-control w-25" type="text" [(ngModel)]="title">
       </div>
 
     
