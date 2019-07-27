@@ -20,17 +20,18 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/assets/bootstrap-4.3.1/css/bootstrap.min.css",
-              "src/assets/script.js",
-              "src/assets/jquery-3.4.1.min.js",
-              "src/assets/popper.min.js",
-              "src/assets/bootstrap-4.3.1/js/bootstrap.min.js"
+              "src/assets"
             ],
             "styles": [
+              "src/assets/bootstrap-4.3.1/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jquery-3.4.1.min.js",
+              "src/assets/popper.min.js",
+              "src/assets/bootstrap-4.3.1/js/bootstrap.min.js",
+              "src/assets/script.js"
+            ]
           },
           "configurations": {
             "production": {
