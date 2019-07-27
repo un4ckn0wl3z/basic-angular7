@@ -40,6 +40,10 @@ export class AppComponent {
     this.header = text;
   }
 
+  onChangeTitle(input: HTMLInputElement){
+    this.title = input.value || 'คอร์สพื้นฐาน Angular 7 ง่ายมาก';
+  }
+
 }
 
 
