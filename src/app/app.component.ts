@@ -24,7 +24,7 @@ export class AppComponent implements IAppComponent {
 
 }
 
-@MyDecorator
+@MyDecorator('Hello World')
 class MyClass {
   arrays: number[] = [200, 300, 400, 500];
   objects = { firstname: 'My Firstname', lastname: 'My Lastname' };
@@ -52,6 +52,8 @@ interface IAppComponent {
   removeItem(index: number);
 }
 
-function MyDecorator(target: any){
-  console.log(target);
+function MyDecorator(message: string){
+  return function(target: Function){
+    target.prototype.sayHello = message;
+  }
 }
