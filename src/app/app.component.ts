@@ -5,12 +5,22 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements IAppComponent {
+  item: string[] = [];
   title: string = 'basic-angular7';
+
   constructor() {
     const myClass = new MyClass();
     console.log(myClass.arrays);
   }
+
+  addItem(item: string) {
+    this.item.push(item);
+  }
+  removeItem(index: number) {
+    this.item.splice(index, 1);
+  }
+
 }
 
 class MyClass {
@@ -26,5 +36,16 @@ class MyClass {
     return `onGetFunction ${sum}`;
   }
 
+  constructor() {
+    this.arrays.push(600);
+    this.arrays.push(700);
+  }
 
+}
+
+
+interface IAppComponent {
+  item: Array<string>;
+  addItem(item: string);
+  removeItem(index: number);
 }
