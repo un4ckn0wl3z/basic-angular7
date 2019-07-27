@@ -6,19 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements IAppComponent {
-  item: string[] = [];
+  items: string[] = [];
   title: string = 'basic-angular7';
 
   constructor() {
-    const myClass = new MyClass();
-    console.log(myClass.arrays);
+    // const myClass = new MyClass();
+    // console.log(myClass.arrays);
+    this.addItem("Hello");
+    this.addItem("World");
+    console.log(this.items);
   }
 
   addItem(item: string) {
-    this.item.push(item);
+    this.items.push(item);
   }
   removeItem(index: number) {
-    this.item.splice(index, 1);
+    this.items.splice(index, 1);
   }
 
 }
@@ -45,7 +48,7 @@ class MyClass {
 
 
 interface IAppComponent {
-  item: Array<string>;
+  items: Array<string>;
   addItem(item: string);
   removeItem(index: number);
 }
