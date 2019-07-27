@@ -13,9 +13,17 @@ export class AppComponent {
   content: string = `With <a target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/">supporting</a> text below as a natural lead-in to additional content.`;
   linkAddress: string = 'https://getbootstrap.com/';
   un4cx: string = 'anuwat.rocks';
+  styleColor:string = 'blue';
+  boxId: string = `box-${Math.random()}`;
+  alertClass: string = 'alert alert-primary';
+
 
   constructor() {
-    setTimeout(() => this.title = 'คอร์สพื้นฐาน Angular 7 ง่ายมาก', 1000);
+    setTimeout(() => {
+      this.styleColor = 'red';
+      this.alertClass = 'alert alert-danger';
+      this.title = 'คอร์สพื้นฐาน Angular 7 ง่ายมาก';
+    }, 1000);
   }
 
 
