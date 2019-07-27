@@ -13,6 +13,10 @@
         A simple primary alert—check it out!
       </div>
 
+      <div class="alert" [ngClass]="{'alert-success': isSuccessClass, 'alert-warning': !isSuccessClass}" role="alert">
+        A simple success alert—check it out!
+      </div>
+
       <p class="card-text" [innerHTML]="content"></p>
       <a [attr.un4c]="un4cx" target="_blank" [href]="linkAddress" class="btn btn-primary" [innerText]="button"> </a>
    

@@ -16,12 +16,13 @@ export class AppComponent {
   styleColor:string = 'blue';
   boxId: string = `box-${Math.random()}`;
   alertClass: string = 'alert alert-primary';
-
+  isSuccessClass:boolean = true;
 
   constructor() {
     setTimeout(() => {
       this.styleColor = 'red';
       this.alertClass = 'alert alert-danger';
+      this.isSuccessClass = false;
       this.title = 'คอร์สพื้นฐาน Angular 7 ง่ายมาก';
     }, 1000);
   }
