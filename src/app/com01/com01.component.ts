@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'app-com01',
@@ -7,5 +7,9 @@ import { Component } from "@angular/core";
   })
 export class Com01Component {
 
+  @Input('message') message:string;
 
+  constructor(){
+    this.message = 'empty';
+  }
 }
