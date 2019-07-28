@@ -15,6 +15,8 @@ export class AppComponent {
 
   lang:string = 'tha';
 
+  animals:string[] = ['Dog','Cat','Rat','Bird'];
+
   constructor(){
 
     // const lang:string = 'eng';
