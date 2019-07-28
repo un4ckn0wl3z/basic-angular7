@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, OnChanges, OnDestroy } from "@angular/core";
 
 @Component({
     selector: 'app-com01',
     templateUrl: './com01.component.html',
     styleUrls: ['./com01.component.css']
   })
-export class Com01Component implements OnInit {
+export class Com01Component implements OnInit, OnChanges,OnDestroy {
+
 
 
   @Input('message') message:string;
@@ -18,6 +19,13 @@ export class Com01Component implements OnInit {
     
   ngOnInit(): void {
     console.log('ngOnInit');
+  }
+
+  ngOnChanges(value: any) {
+    console.log(value);
+  }
+  ngOnDestroy(): void {
+    console.log('component deleted');
   }
 
 
