@@ -11,26 +11,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
   message:string = 'Basic input for component';
   isShow:boolean = false;
-
   isShowComponent1:boolean = false;
+
+  lang:string = 'tha';
 
   constructor(){
 
-    const score = 90;
+    // const lang:string = 'eng';
 
-    if(score >= 100){
-      console.log('score >= 100');
-    }else if (score >= 90){
-      console.log('score >= 90');
-    }else if (score >= 80){
-      console.log('score >= 80');
-    }else if (score >= 70){
-      console.log('score >= 70');
-    }else if (score >= 60){
-      console.log('score >= 60');
-    }else{
-      console.log('fuck ');
-    }
+    // switch (lang) {
+    //   case 'eng':
+    //     console.log('English');
+    //     break;
+    //   case 'tha':
+    //       console.log('Thai');
+    //       break;
+    //   default:
+    //       console.log('Language not found.');
+    //     break;
+    // }
 
 
   }

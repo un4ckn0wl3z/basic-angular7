@@ -18,6 +18,12 @@
 
   <hr>
 
-  <div *ngIf="isShow" directive1="" >DIRECTIVE</div>
+  <!-- <div *ngIf="isShow" directive1="" >DIRECTIVE</div> -->
+
+  <div [ngSwitch]="lang" directive1>
+    <span *ngSwitchCase="'eng'">English</span>
+    <span *ngSwitchCase="'tha'">Thai</span>
+    <span *ngSwitchDefault>unknown</span>
+  </div>
 
 </div>
