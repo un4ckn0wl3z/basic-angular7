@@ -26,11 +26,21 @@
     <span *ngSwitchDefault>unknown</span>
   </div>
   <hr>
-  <ul>
+  <ul *ngIf="isShow; else mytp">
     <ng-container *ngFor="let item of animals; let index = index">
     <li >{{index+1}} - {{item}}</li>
     <li >Hello - {{item}}</li>
   </ng-container>
   </ul>
+
+  <div class="form-group" (click)="isShow=!isShow">
+    <button type="button" class="btn btn-danger">Loading...</button>
+  </div>
+
+  <hr>
+
+  <ng-template #mytp>
+    <h3>Loading...</h3>
+  </ng-template>
 
 </div>

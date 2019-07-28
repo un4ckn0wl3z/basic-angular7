@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   messages:string[] = ['Basic input for component'];
-  isShow:boolean = false;
+  isShow:boolean = true;
   isShowComponent1:boolean = true;
 
   lang:string = 'tha';
