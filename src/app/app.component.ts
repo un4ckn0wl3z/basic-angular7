@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  message:string = 'Basic input for component';
+  messages:string[] = ['Basic input for component'];
   isShow:boolean = false;
-  isShowComponent1:boolean = false;
+  isShowComponent1:boolean = true;
 
   lang:string = 'tha';
 
@@ -39,7 +39,7 @@ export class AppComponent {
 
   // get output value from com2
   onMessage(input: string){
-    this.message = input;
+    this.messages.push(input);
   }
 
 

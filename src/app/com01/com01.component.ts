@@ -9,10 +9,10 @@ export class Com01Component implements OnInit, OnChanges,OnDestroy {
 
 
 
-  @Input('message') message:string;
+  @Input('messages') messages:string[] = [];
 
   constructor(){
-    this.message = 'empty';
+    this.messages.push('empty');
     console.log('constructor');
   }
 
