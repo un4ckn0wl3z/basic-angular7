@@ -1,4 +1,5 @@
-import { Input } from '@angular/core';
+import { Com01Component } from './com01/com01.component';
+import { Input, ElementRef, ViewChild } from '@angular/core';
 
 import { Component } from '@angular/core';
 
@@ -8,11 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   message:string = 'Basic input for component';
+  @ViewChild('com01') com01: Com01Component;
+
 
   // get output value from com2
   onMessage(input: string){
     //console.log('th is output from com2');
+    this.com01.message = input;
     this.message = input;
   }
 
