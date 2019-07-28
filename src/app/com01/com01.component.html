@@ -1,4 +1,9 @@
 <h3 id="header"> 
     <ng-content></ng-content>
 </h3>
-<p>{{message}}</p>
+
+<div [ngSwitch]="message" directive1>
+        <p *ngSwitchCase="'eng'">English</p>
+        <p *ngSwitchCase="'tha'">Thai</p>
+        <p *ngSwitchDefault>unknown</p>
+</div>
