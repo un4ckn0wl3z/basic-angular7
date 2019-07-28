@@ -10,6 +10,9 @@ export class Com02Component implements OnInit {
   @Output('onMessage') onMessage: EventEmitter<String> = new EventEmitter<string>();
   @ViewChild('input') inputElemtRef: ElementRef;
 
+  @Output('onHide') onHide: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  
   constructor() { }
 
   ngOnInit() {

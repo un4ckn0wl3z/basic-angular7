@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   message:string = 'Basic input for component';
+  isShow:boolean = false;
 
+  isShowComponent1:boolean = false;
 
   constructor(){
 
