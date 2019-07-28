@@ -13,7 +13,7 @@ export class AppComponent {
 
 
   message:string = 'Basic input for component';
-  IsDelete:boolean = false;
+
 
 
   // get output value from com2
