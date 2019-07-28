@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 
 import { Component } from '@angular/core';
 
@@ -7,7 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  message:string = 'Global Message';
+  message:string = 'Basic input for component';
+
+  // get output value from com2
+  onMessage(input: string){
+    //console.log('th is output from com2');
+    this.message = input;
+  }
+
 }
 
 

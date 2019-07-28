@@ -6,13 +6,10 @@
 
   <div class="row">
     <div class="col-sm">
-      <app-com01 message="This is paragraph 01"></app-com01>
-      <app-com01 message="This is paragraph 02"></app-com01>
-      <app-com01 message="This is paragraph 03"></app-com01>
       <app-com01 [message]="message"></app-com01>
     </div>
     <div class="col-sm">
-      <app-com02></app-com02>
+      <app-com02 (onMessage)="onMessage($event)" ></app-com02>
     </div>
   </div>
 
