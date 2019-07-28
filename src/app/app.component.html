@@ -27,7 +27,9 @@
   </div>
   <hr>
   <ul>
-    <li *ngFor="let item of animals; let index = index">{{index+1}} - {{item}}</li>
+    <ng-container *ngFor="let item of animals; let index = index">
+      <li *ngIf="item != 'Rat'">{{index+1}} - {{item}}</li>
+  </ng-container>
   </ul>
 
 </div>
