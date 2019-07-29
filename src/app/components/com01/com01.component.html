@@ -13,7 +13,7 @@
 <tbody>
         <tr *ngFor="let item of messages; let index = index">
                 <td>{{index+1}}</td>
-                <td>{{item}}</td>
+                <td>{{onCutMessage(item)}}</td>
         </tr>
 </tbody>
 </table>

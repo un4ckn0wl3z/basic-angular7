@@ -1,5 +1,5 @@
-import { Com01Component } from './com01/com01.component';
-import { Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+
+
 
 import { Component } from '@angular/core';
 
@@ -9,7 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  messages:string[] = ['Basic input for component'];
+  messages:string[] = [
+    'Basic input for component',
+    'is simply dummy text of the printing and typesetting industry. Lorem Ipsum',
+    'it to make a type specimen book. It has survived not only'];
+
   isShowWorkshop:boolean = false;
 
 
@@ -20,6 +24,14 @@ export class AppComponent {
     this.messages.push(input);
   }
 
+  // func strip string
+  onCutMessage(input: string){
+    if(input.length <= 50){
+      return input;
+    }
+    return input.substring(0,50).concat('[...]');
+    
+  }
 
 }
 

@@ -1,6 +1,10 @@
 <div class="container mt-4">
   <h1 directive1="" >Basic Pipe</h1>
   <hr>
+
+  <ol>
+    <li *ngFor="let item of messages">{{  onCutMessage(item) }}</li>
+  </ol>
   
   <div class="row" *ngIf="isShowWorkshop">
     <div class="col-sm">
@@ -18,28 +22,10 @@
   </form>
   <!-- <div *ngIf="isShow" directive1="" >DIRECTIVE</div> -->
 
-  <div [ngSwitch]="lang" directive1>
-    <span *ngSwitchCase="'eng'">English</span>
-    <span *ngSwitchCase="'tha'">Thai</span>
-    <span *ngSwitchDefault>unknown</span>
-  </div>
-  <hr>
-  <ul *ngIf="isShow; else mytp">
-    <ng-container *ngFor="let item of animals; let index = index">
-    <li >{{index+1}} - {{item}}</li>
-    <li >Hello - {{item}}</li>
-  </ng-container>
-  </ul>
 
-  <div class="form-group" (click)="isShow=!isShow">
-    <button type="button" class="btn btn-danger">Loading...</button>
-  </div>
 
   <hr>
 
-  <ng-template #mytp>
-    <h3>Loading...</h3>
-  </ng-template>
   <hr>
 
   <h1 *directive2="2">Hello Template directive</h1>
