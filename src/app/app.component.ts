@@ -10,31 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   messages:string[] = ['Basic input for component'];
-  isShow:boolean = true;
-  isShowComponent1:boolean = true;
-
-  lang:string = 'tha';
-
-  animals:string[] = ['Dog','Cat','Rat','Bird'];
-
-  constructor(){
-
-    // const lang:string = 'eng';
-
-    // switch (lang) {
-    //   case 'eng':
-    //     console.log('English');
-    //     break;
-    //   case 'tha':
-    //       console.log('Thai');
-    //       break;
-    //   default:
-    //       console.log('Language not found.');
-    //     break;
-    // }
+  isShowWorkshop:boolean = false;
 
 
-  }
 
 
   // get output value from com2
