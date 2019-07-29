@@ -24,15 +24,6 @@ export class AppComponent {
     this.messages.push(input);
   }
 
-  // func strip string
-  onCutMessage(input: string){
-    if(input.length <= 50){
-      return input;
-    }
-    return input.substring(0,50).concat('[...]');
-    
-  }
-
 }
 
 

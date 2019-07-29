@@ -1,24 +1,25 @@
 <div class="container mt-4">
-  <h1 directive1="" >Basic Pipe</h1>
+  <h1 directive1="">Basic Pipe</h1>
   <hr>
 
   <ol>
-    <li *ngFor="let item of messages">{{  onCutMessage(item) }}</li>
+    <li *ngFor="let item of messages">{{ item | pipe1 }}</li>
   </ol>
-  
+
   <div class="row" *ngIf="isShowWorkshop">
     <div class="col-sm">
-      <app-com01  [messages]="messages">Component 01</app-com01>
-      
+      <app-com01 [messages]="messages">Component 01</app-com01>
+
     </div>
     <div class="col-sm">
-      <app-com02 (onHide)="isShowWorkshop = $event" (onMessage)="onMessage($event)"  >Component 02</app-com02>
+      <app-com02 (onHide)="isShowWorkshop = $event" (onMessage)="onMessage($event)">Component 02</app-com02>
     </div>
   </div>
 
   <hr>
   <form action="" class="form-group">
-    <button type="button" *ngIf="!isShowWorkshop" (click)="isShowWorkshop = !isShowWorkshop" class="btn btn-primary">Show Workshop</button>
+    <button type="button" *ngIf="!isShowWorkshop" (click)="isShowWorkshop = !isShowWorkshop"
+      class="btn btn-primary">Show Workshop</button>
   </form>
   <!-- <div *ngIf="isShow" directive1="" >DIRECTIVE</div> -->
 

@@ -27,14 +27,6 @@ export class Com01Component implements OnInit, OnChanges,OnDestroy {
   ngOnDestroy(): void {
     console.log('component deleted');
   }
-  // func strip string
-  onCutMessage(input: string){
-    if(input.length <= 50){
-      return input;
-    }
-    return input.substring(0,50).concat('[...]');
-    
-  }
 
 
 }
