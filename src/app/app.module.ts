@@ -9,6 +9,7 @@ import { Directive1Directive } from './directives/directive1.directive';
 import { Directive2Directive } from './directives/directive2.directive';
 import { Pipe1Pipe } from './pipes/pipe1.pipe';
 import { Pipe2Pipe } from './pipes/pipe2.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Pipe2Pipe } from './pipes/pipe2.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

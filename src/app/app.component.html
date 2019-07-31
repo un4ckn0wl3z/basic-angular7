@@ -33,31 +33,34 @@
 
   <hr>
 
-  <form action="">
+  <form (submit)="onSubmit()">
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-info">submit</button>
+    </div>
     <div class="row">
       <div class="col-4">
         <div class="form-group">
           <label for="text">Text: </label>
-          <input id="text" type="text" class="form-control" placeholder="Please input data">
+          <input id="text" name="text" [(ngModel)]="form.text" type="text" class="form-control" placeholder="Please input data">
         </div>
       </div>
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <input type="number" class="form-control" placeholder="Please input data">
+              <input type="number" name="numb" [(ngModel)]="form.numb" class="form-control" placeholder="Please input data">
             </div>
       </div>
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <input type="date" class="form-control" placeholder="Please input data">
+              <input type="date" name="date" [(ngModel)]="form.date" class="form-control" placeholder="Please input data">
             </div>
       </div>
 
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <select class="form-control">
+              <select class="form-control" name="select" [(ngModel)]="form.select">
                 <option value="">Choose item</option>
                 <option value="1">item 1</option>
                 <option value="2">item 2</option>
@@ -74,11 +77,11 @@
               <label for="">Checkbox: </label>
               <br>
              <div class="form-check form-check-inline">
-               <input type="checkbox" class="form-check-input" id="chk1">
+               <input type="checkbox" name="chbox1" [(ngModel)]="form.chbox1" class="form-check-input" id="chk1">
                <label for="chk1" class="form-check-label">Check me 1</label>
              </div>
              <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="chk2">
+                <input type="checkbox" name="chbox2" [(ngModel)]="form.chbox2"  class="form-check-input" id="chk2">
                 <label for="chk2" class="form-check-label">Check me 2</label>
               </div>
             </div>
@@ -89,11 +92,11 @@
               <label for="">radio: </label>
               <br>
              <div class="form-check form-check-inline">
-               <input name="rad" type="radio" class="form-check-input" id="rd1">
+               <input name="rad" [(ngModel)]="form.radbut" value="rad1" type="radio" class="form-check-input" id="rd1">
                <label for="rd1" class="form-check-label">radio 1</label>
              </div>
              <div class="form-check form-check-inline">
-                <input name="rad" type="radio" class="form-check-input" id="rd2">
+                <input name="rad" [(ngModel)]="form.radbut" value="rad2" type="radio" class="form-check-input" id="rd2">
                 <label for="rd2" class="form-check-label">radio 2</label>
               </div>
             </div>
@@ -104,7 +107,7 @@
       <div class="col-8">
         <div class="form-group">
           <label for="">Textarea: </label>
-          <textarea class="form-control" cols="30" rows="10" placeholder="input data"></textarea>
+          <textarea name="textaread" [(ngModel)]="form.textaread" class="form-control" cols="30" rows="10" placeholder="input data"></textarea>
         </div>
       </div>
 
@@ -113,7 +116,7 @@
       <div class="col-4">
           <div class="form-group">
               <label for="">Select Multiple: </label>
-              <select class="form-control" multiple="multiple">
+              <select class="form-control" multiple="multiple" name="selects" [(ngModel)]="form.selects">
                 <option value="1">item 1</option>
                 <option value="2">item 2</option>
                 <option value="3">item 3</option>
@@ -123,7 +126,7 @@
 
             <div class="form-group">
                 <label for="">input file: </label>
-                <input type="file" class="form-control">
+                <input name="file" type="file" (change)="form.file = $event.target.files[0]">
               </div>
       </div>
 
