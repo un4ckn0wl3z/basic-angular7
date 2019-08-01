@@ -33,7 +33,7 @@
 
   <hr>
 
-  <form (submit)="onSubmit()" [formGroup]="form">
+  <form (submit)="onSubmit()" [formGroup]="formG">
     <div class="form-group text-right">
         <button type="submit" class="btn btn-info" >submit</button>
     </div>
@@ -126,7 +126,7 @@
 
             <div class="form-group">
                 <label for="">input file: </label>
-                <input type="file" (change)="form.file = $event.target.files[0]">
+                <input type="file" (change)="form.controls['file'].setValue($event.target.files[0])">
               </div>
       </div>
 

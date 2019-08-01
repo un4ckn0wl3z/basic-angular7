@@ -2,7 +2,7 @@
 
 
 import { Component, ViewChild } from '@angular/core';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent {
 
   // form model
   //form: FormData = new FormData();
-  form:FormGroup = new FormGroup({
+  formG:FormGroup = new FormGroup({
     text: new FormControl(),
     numb: new FormControl(),
     date: new FormControl(),
@@ -34,6 +34,27 @@ export class AppComponent {
     selects: new FormControl(),
     file: new FormControl(),
   });
+
+
+  formB:FormGroup;
+
+  constructor(private formBuilder:FormBuilder){
+    this.formB = this.formBuilder.group({
+      text: [],
+      numb: [],
+      date: [],
+      select: [''],
+      checkens: this.formBuilder.group({
+        chbox1: new FormControl(),
+        chbox2: new FormControl(),
+        rad: new FormControl()
+      }),
+  
+      textaread: [],
+      selects: [],
+      file: []
+    });
+  }
 
   // constructor(){
 
