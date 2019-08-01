@@ -23,7 +23,7 @@ export class AppComponent {
     text: new FormControl(),
     numb: new FormControl(),
     date: new FormControl(),
-    select: new FormControl(),
+    select: new FormControl(''),
     chbox1: new FormControl(),
     chbox2: new FormControl(),
     rad: new FormControl(),
@@ -32,7 +32,13 @@ export class AppComponent {
     file: new FormControl(),
   });
 
+  constructor(){
 
+    setTimeout(() => {
+      this.form.controls['text'].setValue('hello');
+    }, 2000)
+
+  }
 
   // get output value from com2
   onMessage(input: string){
