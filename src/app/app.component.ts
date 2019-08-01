@@ -72,10 +72,10 @@ export class AppComponent {
 
   // recieve data
   onSubmit(){
-    console.log(this.form.value);
+    console.log(this.formB.value);
 }
 
 
 
 
-
+}
