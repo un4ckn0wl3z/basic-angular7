@@ -2,6 +2,7 @@
 
 
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -26,38 +27,17 @@ export class AppComponent {
 
 
   // recieve data
-  onSubmit(){
-    // console.log("Text =" , this.text);
-    // console.log("Number =" , this.numb);
-    // console.log("Date =" , this.date);
-    // console.log("Select =" , this.select);
-    // console.log("chbox1 =" , this.chbox1);
-    // console.log("chbox2 =" , this.chbox2);
-    // console.log("radbut =" , this.radbut);
-    // console.log("textaread =" , this.textaread);
-    // console.log("selects =" , this.selects);
-    // console.log("file =" , this.file);
-    console.log("file =" , this.form);
-
-
+  onSubmit(form: NgForm){
+    if(form.invalid){
+      return;
+    }
+    console.log(form.valid);
+    console.log(form.value);
   }
 
 
 }
 
-
-class FormData{
-  text: string = '';
-  numb: number = 0;
-  date: string = '';
-  select: string = '4';
-  chbox1: boolean = false;
-  chbox2: boolean = false;
-  radbut: string = 'rad2';
-  textaread: string = '';
-  selects: string[] = [];
-  file: File = null;
-}
 
 
 
