@@ -24,21 +24,24 @@ export class AppComponent {
     numb: new FormControl(),
     date: new FormControl(),
     select: new FormControl(''),
-    chbox1: new FormControl(),
-    chbox2: new FormControl(),
-    rad: new FormControl(),
+    checkens: new FormGroup({
+      chbox1: new FormControl(),
+      chbox2: new FormControl(),
+      rad: new FormControl()
+    }),
+
     textaread: new FormControl(),
     selects: new FormControl(),
     file: new FormControl(),
   });
 
-  constructor(){
+  // constructor(){
 
-    setTimeout(() => {
-      this.form.controls['text'].setValue('hello');
-    }, 2000)
+  //   setTimeout(() => {
+  //     this.form.controls['text'].setValue('hello');
+  //   }, 2000)
 
-  }
+  // }
 
   // get output value from com2
   onMessage(input: string){
