@@ -33,7 +33,7 @@
 
   <hr>
 
-  <form #form="ngForm" (submit)="onSubmit(form)">
+  <form #form="ngForm" (submit)="onSubmit()">
     <div class="form-group text-right">
         <button type="submit" class="btn btn-info" [disabled]="form.invalid">submit</button>
     </div>

@@ -1,7 +1,7 @@
 
 
 
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,9 @@ export class AppComponent {
   isShowWorkshop:boolean = false;
 
   // form model
-  form: FormData = new FormData();
+  //form: FormData = new FormData();
+
+@ViewChild('form') form:NgForm;
 
   // get output value from com2
   onMessage(input: string){
@@ -27,12 +29,13 @@ export class AppComponent {
 
 
   // recieve data
-  onSubmit(form: NgForm){
-    if(form.invalid){
+  onSubmit(){
+    if(this.form.invalid){
       return;
     }
-    console.log(form.valid);
-    console.log(form.value);
+    console.log(this.form.valid);
+    console.log(this.form.value);
+    this.form.reset();
   }
 
 
