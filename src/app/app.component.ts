@@ -2,7 +2,7 @@
 
 
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +19,20 @@ export class AppComponent {
 
   // form model
   //form: FormData = new FormData();
+  form:FormGroup = new FormGroup({
+    text: new FormControl(),
+    numb: new FormControl(),
+    date: new FormControl(),
+    select: new FormControl(),
+    chbox1: new FormControl(),
+    chbox2: new FormControl(),
+    rad: new FormControl(),
+    textaread: new FormControl(),
+    selects: new FormControl(),
+    file: new FormControl(),
+  });
 
-@ViewChild('form') form:NgForm;
+
 
   // get output value from com2
   onMessage(input: string){
@@ -30,15 +42,7 @@ export class AppComponent {
 
   // recieve data
   onSubmit(){
-    if(this.form.invalid){
-      return;
-    }
-    console.log(this.form.valid);
     console.log(this.form.value);
-    this.form.reset();
-  }
-
-
 }
 
 

@@ -33,34 +33,34 @@
 
   <hr>
 
-  <form #form="ngForm" (submit)="onSubmit()">
+  <form (submit)="onSubmit()" [formGroup]="form">
     <div class="form-group text-right">
-        <button type="submit" class="btn btn-info" [disabled]="form.invalid">submit</button>
+        <button type="submit" class="btn btn-info" >submit</button>
     </div>
     <div class="row">
       <div class="col-4">
         <div class="form-group">
           <label for="text">Text: </label>
-          <input id="text" name="text" required ngModel type="text" class="form-control" placeholder="Please input data">
+          <input id="text" formControlName="text"  type="text" class="form-control" placeholder="Please input data">
         </div>
       </div>
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <input type="number" name="numb" ngModel class="form-control" placeholder="Please input data">
+              <input type="number" formControlName="numb"  class="form-control" placeholder="Please input data">
             </div>
       </div>
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <input type="date" name="date" ngModel class="form-control" placeholder="Please input data">
+              <input type="date" formControlName="date"  class="form-control" placeholder="Please input data">
             </div>
       </div>
 
       <div class="col-4">
           <div class="form-group">
               <label for="">Number: </label>
-              <select class="form-control" name="select" ngModel>
+              <select class="form-control" formControlName="select" >
                 <option value="">Choose item</option>
                 <option value="1">item 1</option>
                 <option value="2">item 2</option>
@@ -77,11 +77,11 @@
               <label for="">Checkbox: </label>
               <br>
              <div class="form-check form-check-inline">
-               <input type="checkbox" name="chbox1" ngModel1 class="form-check-input" id="chk1">
+               <input type="checkbox" formControlName="chbox1"  class="form-check-input" id="chk1">
                <label for="chk1" class="form-check-label">Check me 1</label>
              </div>
              <div class="form-check form-check-inline">
-                <input type="checkbox" name="chbox2" ngModel  class="form-check-input" id="chk2">
+                <input type="checkbox" formControlName="chbox2"   class="form-check-input" id="chk2">
                 <label for="chk2" class="form-check-label">Check me 2</label>
               </div>
             </div>
@@ -92,11 +92,11 @@
               <label for="">radio: </label>
               <br>
              <div class="form-check form-check-inline">
-               <input name="rad" ngModel value="rad1" type="radio" class="form-check-input" id="rd1">
+               <input formControlName="rad"  value="rad1" type="radio" class="form-check-input" id="rd1">
                <label for="rd1" class="form-check-label">radio 1</label>
              </div>
              <div class="form-check form-check-inline">
-                <input name="rad" ngModel value="rad2" type="radio" class="form-check-input" id="rd2">
+                <input formControlName="rad"  value="rad2" type="radio" class="form-check-input" id="rd2">
                 <label for="rd2" class="form-check-label">radio 2</label>
               </div>
             </div>
@@ -107,7 +107,7 @@
       <div class="col-8">
         <div class="form-group">
           <label for="">Textarea: </label>
-          <textarea name="textaread" ngModel class="form-control" cols="30" rows="10" placeholder="input data"></textarea>
+          <textarea formControlName="textaread"  class="form-control" cols="30" rows="10" placeholder="input data"></textarea>
         </div>
       </div>
 
@@ -116,7 +116,7 @@
       <div class="col-4">
           <div class="form-group">
               <label for="">Select Multiple: </label>
-              <select class="form-control" multiple="multiple" name="selects" ngModel>
+              <select class="form-control" multiple="multiple" formControlName="selects">
                 <option value="1">item 1</option>
                 <option value="2">item 2</option>
                 <option value="3">item 3</option>
@@ -126,7 +126,7 @@
 
             <div class="form-group">
                 <label for="">input file: </label>
-                <input name="file" type="file" (change)="form.file = $event.target.files[0]">
+                <input type="file" (change)="form.file = $event.target.files[0]">
               </div>
       </div>
 
