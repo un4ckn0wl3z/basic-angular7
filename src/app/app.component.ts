@@ -2,7 +2,7 @@
 
 
 import { Component, ViewChild } from '@angular/core';
-import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,43 +17,10 @@ export class AppComponent {
 
   isShowWorkshop:boolean = false;
 
-  // form model
-  //form: FormData = new FormData();
-  formG:FormGroup = new FormGroup({
-    text: new FormControl(),
-    numb: new FormControl(),
-    date: new FormControl(),
-    select: new FormControl(''),
-    checkens: new FormGroup({
-      chbox1: new FormControl(),
-      chbox2: new FormControl(),
-      rad: new FormControl()
-    }),
-
-    textaread: new FormControl(),
-    selects: new FormControl(),
-    file: new FormControl(),
-  });
-
-
   formB:FormGroup;
 
   constructor(private formBuilder:FormBuilder){
-    this.formB = this.formBuilder.group({
-      text: [],
-      numb: [],
-      date: [],
-      select: [''],
-      checkens: this.formBuilder.group({
-        chbox1: new FormControl(),
-        chbox2: new FormControl(),
-        rad: new FormControl()
-      }),
-  
-      textaread: [],
-      selects: [],
-      file: []
-    });
+    this.initFormGroup()
   }
 
   // constructor(){
@@ -75,7 +42,23 @@ export class AppComponent {
     console.log(this.formB.value);
 }
 
+private initFormGroup(){
+  this.formB = this.formBuilder.group({
+    text: ['',Validators.required],
+    numb: [],
+    date: [],
+    select: [''],
+    checkens: this.formBuilder.group({
+      chbox1: new FormControl(),
+      chbox2: new FormControl(),
+      rad: new FormControl()
+    }),
 
+    textaread: [],
+    selects: [],
+    file: []
+  });
+}
 
 
 }
