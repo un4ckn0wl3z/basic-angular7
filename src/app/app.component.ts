@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
   constructor(private router: Router){
-
+    setTimeout(() => {
+      this.onRedirect('/login');
+    },3000)
   }
 
   /** redirect */
