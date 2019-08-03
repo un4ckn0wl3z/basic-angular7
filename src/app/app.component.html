@@ -4,12 +4,18 @@
   <div>
     <a routerLink="/" routerLinkActive="link-active" [routerLinkActiveOptions]="{ exact: true}">Home</a>
     <span> | </span>
-    <a routerLink="/register" routerLinkActive="link-active">Register</a>
+    <a [routerLink]="['/', 'register']" routerLinkActive="link-active">Register</a>
     <span> | </span>
-    <a routerLink="/login" routerLinkActive="link-active">Login</a>
+    <a [routerLink]="['/', 'login']" routerLinkActive="link-active">Login</a>
     <span> | </span>
-    <a routerLink="/profile" routerLinkActive="link-active">Profile</a>
-  </div>
+    <a [routerLink]="['/', 'profile']" routerLinkActive="link-active">Profile</a>
+    <span> | </span>
+    <button (click)="onRedirect(['/', 'register'])" class="btn btn-primary">Register</button>
+    <span> | </span>
+    <button (click)="onRedirect(['/', 'login'])"  class="btn btn-success">Login</button>
+    <span> | </span>
+    <button (click)="onRedirect(['/', 'profile'])" class="btn btn-warning">Profile</button>
+    </div>
   <hr>
   <router-outlet></router-outlet>
 </div>
