@@ -1,5 +1,5 @@
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-com02',
