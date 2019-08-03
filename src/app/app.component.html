@@ -1,5 +1,15 @@
 <div class="container mt-4">
   <h1>Basic Routing</h1>
+  
+  <div>
+    <a routerLink="/" routerLinkActive="link-active" [routerLinkActiveOptions]="{ exact: true}">Home</a>
+    <span> | </span>
+    <a routerLink="/register" routerLinkActive="link-active">Register</a>
+    <span> | </span>
+    <a routerLink="/login" routerLinkActive="link-active">Login</a>
+    <span> | </span>
+    <a routerLink="/profile" routerLinkActive="link-active">Profile</a>
+  </div>
   <hr>
   <router-outlet></router-outlet>
 </div>
