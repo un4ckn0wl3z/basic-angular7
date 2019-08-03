@@ -1,9 +1,65 @@
-<h3><ng-content></ng-content></h3>
-<form class="form-inline">
-    <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control" #input placeholder="type something here...">
+<div class="card bg-light">
+  <h3 class="card-header">COM 2</h3>
+  <form (submit)="onSubmit()" [formGroup]="form">
+    <div class="card-body">
+      <div class="row">
+          <div class="col-12">
+              <div class="form-group">
+                <label class="lb-gender" for="">Gender: </label>
+               <div class="form-check form-check-inline">
+                 <input type="radio" class="form-check-input" value="male" id="male" formControlName="gender">
+                 <label for="male" class="form-check-label">Male</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" value="female" id="female" formControlName="gender">
+                  <label for="female" class="form-check-label">Female</label>
+                </div>
+    
+              </div>
+            </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Firstname: </label>
+            <input type="text" class="form-control" formControlName="firstname">
+            <div [appValidate]="form.get('firstname')"></div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Lastname: </label>
+            <input type="text" class="form-control" formControlName="lastname">
+            <div [appValidate]="form.get('lastname')"></div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="">Phone: </label>
+          <div class="form-group" *ngFor="let control of getPhonesForm.controls">
+           
+            <input type="text" class="form-control" [formControl]="control">
+            <div [appValidate]="control"></div>
+          </div>
+          <div class="add-remove-link float-right ">
+              <a (click)="onAddPhone()" class="text-primary">
+                  <u><small>Add phone</small></u>
+              </a>
+              <span class="text-muted"> | </span>
+              <a (click)="onRemovePhone()" class="text-danger">
+                    <u><small>Remove phone</small></u>
+              </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <button type="button" class="btn btn-primary mb-2" (click)="onSendData()" >Send data</button>
-    <span>&nbsp;&nbsp;</span>
-    <button type="button" class="btn btn-danger mb-2" (click)="onHide.emit(false)" >Hide Workshop</button>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6">
+          <button type="submit" class="btn btn-block btn-warning">Save</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-block btn-danger">Cancel</button>
+          </div>
+      </div>
+    </div>
   </form>
+</div>

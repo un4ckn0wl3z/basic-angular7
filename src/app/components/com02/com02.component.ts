@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -5,30 +6,58 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '
   templateUrl: './com02.component.html',
   styleUrls: ['./com02.component.css']
 })
-export class Com02Component implements OnInit {
+export class Com02Component {
 
-  @Output('onMessage') onMessage: EventEmitter<String> = new EventEmitter<string>();
-  @ViewChild('input') inputElemtRef: ElementRef;
+  form:FormGroup;
 
-  @Output('onHide') onHide: EventEmitter<boolean> = new EventEmitter<boolean>();
+  constructor(private formBuilder:FormBuilder){
+    this.initForm();
+  }
 
+  /** Submit */
+  onSubmit(){
+    this.form.get('gender').markAsDirty();
+    this.form.get('firstname').markAsDirty();
+    this.form.get('lastname').markAsDirty();
+    this.getPhonesForm.controls.forEach(control => {
+      control.markAsDirty();
+    });
+    if(this.form.invalid) return;
+    console.log(this.form.value);
+  }
+
+  /** enumerate form array */
+  get getPhonesForm(){
+    const formArray = this.form.get('phones') as FormArray;
+    return formArray;
+  }
+
+  onAddPhone(){
+    const phoneArray = this.getPhonesForm;
+    phoneArray.push(this.createPhoneControl());
+  }
+
+  onRemovePhone(){
+    const phoneArray = this.getPhonesForm;
+    if(phoneArray.length <= 1) return;
+    phoneArray.removeAt(phoneArray.length - 1);
+  }
   
-  constructor() { }
-
-  ngOnInit() {
+  /** Init form */
+  private initForm(){
+    this.form =  this.formBuilder.group({
+      gender: [null,[Validators.required]],
+      firstname: [null,[Validators.required]],
+      lastname: [null,[Validators.required]],
+      phones: this.formBuilder.array([this.createPhoneControl()])
+    });
   }
 
-  // send data 
-  onSendData(){
-    const input = this.inputElemtRef.nativeElement;
-    //const input = document.getElementById('input-data') as HTMLInputElement;
-    //console.log(input.value);
-    if(input.value.trim() != ''){
-      this.onMessage.emit(input.value);
-      input.value = '';
-    }else{
-      alert('pls type somtin.');
-    }
+  /** create phone array */
+  private createPhoneControl(){
+    return this.formBuilder.control(null,[
+      Validators.required,
+      Validators.pattern(/^[0-9]{10}$/)
+    ])
   }
-
 }

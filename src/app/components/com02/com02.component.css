@@ -1,3 +1,18 @@
-h3 {
-    color: blue;
+.lb-gender {
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+
+.add-remove-link {
+    margin-top: -10px;
+}
+
+a.text-primary {
+    cursor: pointer;
+}
+
+a.text-danger {
+    cursor: pointer;
 }
