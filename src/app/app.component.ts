@@ -8,8 +8,6 @@ import { ICom2formData } from './interfaces/com2formdata.interface';
 })
 export class AppComponent {
 
-  isShowWorkshop:boolean = true;
-  com2FormData: ICom2formData;
 
 }
 

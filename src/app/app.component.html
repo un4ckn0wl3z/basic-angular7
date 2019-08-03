@@ -1,24 +1,7 @@
 <div class="container mt-4">
-  <h1>Form Workshop</h1>
-  <hr>
+  <h1>Basic Routing</h1>
+  <app-home></app-home>
 
-
-  <div class="row" *ngIf="isShowWorkshop">
-    <div class="col-sm">
-      <app-com01 [com2FormDataInput]="com2FormData"></app-com01>
-
-    </div>
-    <div class="col-sm">
-      <app-com02 (onSubmitChange)="com2FormData = $event"></app-com02>
-    </div>
-  </div>
-
-  <hr>
-  <form action="" class="form-group">
-    <button type="button" *ngIf="!isShowWorkshop" (click)="isShowWorkshop = !isShowWorkshop"
-      class="btn btn-primary">Show Workshop</button>
-  </form>
-  <!-- <div *ngIf="isShow" directive1="" >DIRECTIVE</div> -->
 
   
 

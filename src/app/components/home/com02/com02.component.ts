@@ -11,6 +11,8 @@ export class Com02Component {
   form:FormGroup;
 
   @Output('onSubmitChange') onSubmitChange = new EventEmitter();
+  @Output('onHideMainComponent') onHideMainComponent = new EventEmitter<Boolean>();
+
 
   constructor(private formBuilder:FormBuilder){
     this.initForm();
