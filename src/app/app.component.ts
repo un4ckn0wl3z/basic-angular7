@@ -16,7 +16,10 @@ export class AppComponent {
     'it to make a type specimen book. It has survived not only'];
 
   isShowWorkshop:boolean = false;
-
+  errorMessage = {
+    required: 'This field is required',
+    pattern: 'wrong pattern'
+  }
   formB:FormGroup;
 
   constructor(private formBuilder:FormBuilder){
@@ -73,6 +76,16 @@ private initFormGroup(){
     selects: [[],Validators.required],
     file: []
   });
+}
+
+
+// check validate message
+private getErrorMessage(control: FormControl){
+  if(control && control.invalid){
+    const error = Object.keys(control.errors) ;
+    console.log(this.errorMessage[error[0]]);
+    return this.errorMessage[error[0]];
+  }
 }
 
 

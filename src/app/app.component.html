@@ -42,6 +42,9 @@
         <div class="form-group">
           <label for="text">Text: </label>
           <input id="text" formControlName="text"  type="text" class="form-control" placeholder="Please input data">
+          <div class="invalid-feedback">
+            {{ getErrorMessage(formB.get('text')) }}
+          </div>
         </div>
       </div>
       <div class="col-4">
