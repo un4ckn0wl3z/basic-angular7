@@ -2,7 +2,7 @@
 
 
 import { Component, ViewChild } from '@angular/core';
-import { NgForm, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,9 @@ export class AppComponent {
   isShowWorkshop:boolean = false;
   errorMessage = {
     required: 'This field is required',
-    pattern: 'wrong pattern "{0}"'
+    pattern: 'wrong pattern "{0}"',
+    error: 'My test custom validate'
+
   }
   formB:FormGroup;
 
@@ -62,7 +64,7 @@ export class AppComponent {
 
 private initFormGroup(){
   this.formB = this.formBuilder.group({
-    text: ['',[Validators.required,Validators.pattern(/^[A-z]{3}$/)]],
+    text: ['',[this.myRequire,this.myPattern(/^[A-z]{5}$/,'pls input any  5 char')]],
     numb: ['',Validators.required],
     date: ['',Validators.required],
     select: ['',Validators.required],
@@ -79,17 +81,39 @@ private initFormGroup(){
 }
 
 
+// custome validate
+ myRequire(control: AbstractControl) {
+
+  if(control.value == '' || control.value.trim() == ''){
+    return {
+      required:true
+    }
+  }
+
+}
+
+// custom pattern
+myPattern(pattern:RegExp,msg: string){
+  return function(control: AbstractControl){
+    if(pattern.test(control.value)) return;
+    return {
+      msg:msg
+    }
+  }
+}
+
 // check validate message
 private getErrorMessage(control: FormControl){
   if(control && control.invalid){
     const error = Object.keys(control.errors) ;
-    console.log(this.errorMessage[error[0]]);
+    //console.log(this.errorMessage[error[0]]);
     if(error[0] == 'pattern'){
       return this.errorMessage[error[0]].replace("{0}",control.errors['pattern']['requiredPattern']);
+    }else if(error[0] == 'msg'){
+      return control.errors['msg'];
     }
     return this.errorMessage[error[0]];
   }
 }
-
-
 }
+
