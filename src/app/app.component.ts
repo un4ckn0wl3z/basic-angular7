@@ -44,10 +44,10 @@ export class AppComponent {
 
 private initFormGroup(){
   this.formB = this.formBuilder.group({
-    text: ['',Validators.required],
-    numb: [],
-    date: [],
-    select: [''],
+    text: ['',[Validators.required,Validators.pattern(/^[A-z]{3}$/)]],
+    numb: ['',Validators.required],
+    date: ['',Validators.required],
+    select: ['',Validators.required],
     checkens: this.formBuilder.group({
       chbox1: new FormControl(),
       chbox2: new FormControl(),
