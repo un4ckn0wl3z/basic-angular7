@@ -18,7 +18,7 @@ export class AppComponent {
   isShowWorkshop:boolean = false;
   errorMessage = {
     required: 'This field is required',
-    pattern: 'wrong pattern'
+    pattern: 'wrong pattern "{0}"'
   }
   formB:FormGroup;
 
@@ -84,6 +84,9 @@ private getErrorMessage(control: FormControl){
   if(control && control.invalid){
     const error = Object.keys(control.errors) ;
     console.log(this.errorMessage[error[0]]);
+    if(error[0] == 'pattern'){
+      return this.errorMessage[error[0]].replace("{0}",control.errors['pattern']['requiredPattern']);
+    }
     return this.errorMessage[error[0]];
   }
 }
