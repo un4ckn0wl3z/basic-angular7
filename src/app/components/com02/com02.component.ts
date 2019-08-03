@@ -10,6 +10,8 @@ export class Com02Component {
 
   form:FormGroup;
 
+  @Output('onSubmitChange') onSubmitChange = new EventEmitter();
+
   constructor(private formBuilder:FormBuilder){
     this.initForm();
   }
@@ -23,7 +25,8 @@ export class Com02Component {
       control.markAsDirty();
     });
     if(this.form.invalid) return;
-    console.log(this.form.value);
+    //console.log(this.form.value);
+    this.onSubmitChange.emit(this.form.value);
   }
 
   /** enumerate form array */

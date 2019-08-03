@@ -5,11 +5,11 @@
 
   <div class="row" *ngIf="isShowWorkshop">
     <div class="col-sm">
-      <app-com01></app-com01>
+      <app-com01 [com2FormDataInput]="com2FormData"></app-com01>
 
     </div>
     <div class="col-sm">
-      <app-com02></app-com02>
+      <app-com02 (onSubmitChange)="com2FormData = $event"></app-com02>
     </div>
   </div>
 

@@ -1,0 +1,31 @@
+<div class="card bg-light" *ngIf="com2FormDataInput">
+    <h3 class="card-header">COM 1</h3>
+    <div class="card-body">
+        <table >
+            <tbody>
+                <tr>
+                    <th>Gender</th>
+                    <td>:</td>
+                    <td>{{com2FormDataInput?.gender}}</td>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <td>:</td>
+                    <td>{{com2FormDataInput?.firstname}}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>:</td>
+                    <td>{{com2FormDataInput?.lastname}}</td>
+                </tr>
+                <tr>
+                    <th>Phones</th>
+                    <td>:</td>
+                    <td>
+                        <div *ngFor="let phone of com2FormDataInput?.phones">{{phone}}</div>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

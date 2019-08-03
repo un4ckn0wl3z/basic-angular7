@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm, FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { ICom2formData } from './interfaces/com2formdata.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,9 @@ import { NgForm, FormGroup, FormControl, FormBuilder, Validators, AbstractContro
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
-  
 
   isShowWorkshop:boolean = true;
-
- 
-
-
+  com2FormData: ICom2formData;
 
 }
 
