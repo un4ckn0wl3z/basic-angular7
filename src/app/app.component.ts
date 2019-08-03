@@ -16,12 +16,7 @@ export class AppComponent {
     'it to make a type specimen book. It has survived not only'];
 
   isShowWorkshop:boolean = false;
-  errorMessage = {
-    required: 'This field is required',
-    pattern: 'wrong pattern "{0}"',
-    error: 'My test custom validate'
-
-  }
+ 
   formB:FormGroup;
 
   constructor(private formBuilder:FormBuilder){
@@ -85,6 +80,7 @@ private initFormGroup(){
  myRequire(control: AbstractControl) {
 
   if(control.value == '' || control.value.trim() == ''){
+    //console.log('myRequire');
     return {
       required:true
     }
@@ -95,6 +91,7 @@ private initFormGroup(){
 // custom pattern
 myPattern(pattern:RegExp,msg: string){
   return function(control: AbstractControl){
+    //console.log('myPattern');
     if(pattern.test(control.value)) return;
     return {
       msg:msg
@@ -102,18 +99,6 @@ myPattern(pattern:RegExp,msg: string){
   }
 }
 
-// check validate message
-private getErrorMessage(control: FormControl){
-  if(control && control.invalid){
-    const error = Object.keys(control.errors) ;
-    //console.log(this.errorMessage[error[0]]);
-    if(error[0] == 'pattern'){
-      return this.errorMessage[error[0]].replace("{0}",control.errors['pattern']['requiredPattern']);
-    }else if(error[0] == 'msg'){
-      return control.errors['msg'];
-    }
-    return this.errorMessage[error[0]];
-  }
-}
+
 }
 

@@ -10,6 +10,7 @@ import { Directive2Directive } from './directives/directive2.directive';
 import { Pipe1Pipe } from './pipes/pipe1.pipe';
 import { Pipe2Pipe } from './pipes/pipe2.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidateDirective } from './directives/validate.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Directive1Directive,
     Directive2Directive,
     Pipe1Pipe,
-    Pipe2Pipe
+    Pipe2Pipe,
+    ValidateDirective
   ],
   imports: [
     BrowserModule,
