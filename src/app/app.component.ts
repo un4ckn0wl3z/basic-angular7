@@ -39,6 +39,21 @@ export class AppComponent {
 
   // recieve data
   onSubmit(){
+    this.formB.get('text').markAsDirty();
+    this.formB.get('numb').markAsDirty();
+    this.formB.get('date').markAsDirty();
+    this.formB.get('select').markAsDirty();
+    this.formB.get('checkens').get('chbox1').markAsDirty();
+    this.formB.get('checkens').get('chbox2').markAsDirty();
+    this.formB.get('textaread').markAsDirty();
+    this.formB.get('selects').markAsDirty();
+
+
+    if(this.formB.invalid){
+
+      console.log('invalid form');
+      return;
+    }
     console.log(this.formB.value);
 }
 
@@ -49,13 +64,13 @@ private initFormGroup(){
     date: ['',Validators.required],
     select: ['',Validators.required],
     checkens: this.formBuilder.group({
-      chbox1: new FormControl(),
-      chbox2: new FormControl(),
-      rad: new FormControl()
+      chbox1: [false,Validators.requiredTrue],
+      chbox2: [false,Validators.requiredTrue],
+      rad: []
     }),
 
-    textaread: [],
-    selects: [],
+    textaread: ['',Validators.required],
+    selects: [[],Validators.required],
     file: []
   });
 }
