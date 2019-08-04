@@ -1,3 +1,4 @@
+import { DataComponent } from './components/data/data.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'register',component: RegisterComponent},
   {path:'login',component: LoginComponent},
   {path:'profile',component: ProfileComponent},
+  {path:'data/:id',component: DataComponent},
   {path:'**',redirectTo: '',pathMatch:'full'}
 ];
 

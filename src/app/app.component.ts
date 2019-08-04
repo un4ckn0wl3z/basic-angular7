@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ICom2formData } from './interfaces/com2formdata.interface';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +7,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private router: Router){
-    setTimeout(() => {
-      this.onRedirect('/login');
-    },3000)
-  }
+ 
 
-  /** redirect */
-  onRedirect(url: string | any){
-    if(typeof url == 'string'){
-      this.router.navigateByUrl(url);
-    }else{
-      this.router.navigate(url);
-    }
-  }
+  
 
 }
 
