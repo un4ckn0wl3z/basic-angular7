@@ -12,6 +12,9 @@ const routes: Routes = [
   {path:'login',component: LoginComponent},
   {path:'profile',component: ProfileComponent},
   {path:'data/:id',component: DataComponent},
+  {path:'data2',component: DataComponent,data:{type:'data2'}},
+  {path:'data3',component: DataComponent,data:{type:'data3'}},
+
   {path:'**',redirectTo: '',pathMatch:'full'}
 ];
 
