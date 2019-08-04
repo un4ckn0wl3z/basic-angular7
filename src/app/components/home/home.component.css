@@ -1,0 +1,7 @@
+a.text-primary {
+    cursor: pointer;
+}
+
+a.text-primary:hover {
+    text-decoration: underline;
+}

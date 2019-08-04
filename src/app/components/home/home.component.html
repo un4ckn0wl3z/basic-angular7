@@ -8,6 +8,12 @@
       <li>
         <a [routerLink]="['/data/400',{item:200}]">[SEND] => id (DYNAMIC)</a>
       </li>
+      <li>
+        <a routerLink="/data/999" [queryParams]="{ param1: 200, param2 : 300}">[SEND QUERY] => id (QUERY PARAMS)</a>
+      </li>
+      <li>
+        <a class="text-primary" (click)="onRedirect()">[SEND] => id (REDIRECT)</a>
+      </li>
     </ul>
   </div>
 

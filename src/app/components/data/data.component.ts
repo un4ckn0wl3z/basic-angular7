@@ -7,13 +7,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-
-  id:string;
   params: any;
+  queryParams: any;
 
   constructor(private activvateRoute:ActivatedRoute) { 
     this.params = this.activvateRoute.snapshot.params;
+    this.queryParams = this.activvateRoute.snapshot.queryParams;
+
     console.log(this.params);
+    console.log(this.queryParams);
+
   }
 
   ngOnInit() {
