@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color: #eee; 
+}
+
 .form-control.ng-invalid.ng-dirty,
 .form-control.ng-invalid.ng-dirty.ng-touched {
     border-color: #dc3545;
@@ -25,3 +30,4 @@
     font-size: 80%;
     color: #dc3545;
 }
+

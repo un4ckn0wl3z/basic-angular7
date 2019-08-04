@@ -16,6 +16,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DataComponent } from './components/data/data.component';
+import { NavbarComponent } from './shares/navbar/navbar.component';
+import { ActivateGuard } from './guards/activate.guard';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { DataComponent } from './components/data/data.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    DataComponent
+    DataComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { DataComponent } from './components/data/data.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
