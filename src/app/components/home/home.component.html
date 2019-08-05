@@ -4,37 +4,7 @@
     Home page
   </h1>
   <div class="card-body">
-      <h3>Basic Routing</h3>
-      <hr>
-      <div class="form-group">
-          <h5>Send data to another component.</h5>
-          <ul>
-            <li>
-              <a routerLink="/data/200">[SEND] => id (FIX)</a>
-            </li>
-            <li>
-              <a [routerLink]="['/data/400',{item:200}]">[SEND] => id (DYNAMIC)</a>
-            </li>
-            <li>
-              <a routerLink="/data/999" [queryParams]="{ param1: 200, param2 : 300}">[SEND QUERY] => id (QUERY PARAMS)</a>
-            </li>
-            <li>
-              <a class="text-primary" (click)="onRedirect()">[SEND] => id (REDIRECT)</a>
-            </li>
-            <li>
-                <a routerLink="/data2" >[SEND DATA2 TYPE]</a>
-              </li>
-              <li>
-                  <a routerLink="/data3" >[SEND DATA3 TYPE]</a>
-                </li>
-                <li>
-                    <a routerLink="/profile" >Denied guard</a>
-                </li>
-                <li>
-                    <a [routerLink]="['/','profile',{allow:true}]" >Allow guard</a>
-                </li>
-          </ul>
-        </div>
+      <h3>Basic Service</h3>
       <hr>
       
       
