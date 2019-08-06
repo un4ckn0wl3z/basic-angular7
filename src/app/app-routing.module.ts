@@ -13,9 +13,7 @@ const routes: Routes = [
   {path:'register',component: RegisterComponent},
   {path:'login',component: LoginComponent},
   {path:'profile',component: ProfileComponent, canActivate: [ActivateGuard], canDeactivate: [DeactivateGuard]},
-  {path:'data/:id',component: DataComponent},
-  {path:'data2',component: DataComponent,data:{type:'data2'}},
-  {path:'data3',component: DataComponent,data:{type:'data3'}},
+  {path:'data',component: DataComponent},
 
   {path:'**',redirectTo: '',pathMatch:'full'}
 ];

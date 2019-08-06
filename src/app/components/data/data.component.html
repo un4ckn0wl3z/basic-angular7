@@ -1,22 +1,12 @@
-<table>
-  <tr>
-    <th>ID</th>
-    <th>:</th>
-    <td>{{params.id}}</td>
-  </tr>
-  <tr>
-    <th>Another</th>
-    <th>:</th>
-    <td>{{ params | json }}</td>
-  </tr>
-  <tr>
-    <th>Query Params</th>
-    <th>:</th>
-    <td>{{ queryParams | json }}</td>
-  </tr>
-  <tr>
-      <th>Data</th>
-      <th>:</th>
-      <td>{{ data | json }}</td>
-    </tr>
-</table>
+<div class="card">
+  <h1 class="card-header">
+    Data page
+  </h1>
+  <div class="card-body">
+    <b>Name1: {{ name1 }}</b>
+    <br>
+    <b>Name2: {{ name2 }}</b>
+  </div>
+</div>
+
+ 

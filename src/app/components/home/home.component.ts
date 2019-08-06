@@ -7,37 +7,39 @@ import { ICom2formData } from 'src/app/interfaces/com2formdata.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [Service1Service]
 })
 export class HomeComponent  {
 
+  isShowWorkshop:boolean = false;
+  com2FormData: ICom2formData;
  
   name1: string;
   name2: string;
 
+  types = {name1:0, name2:1};
 
-  constructor(private router:Router, private service1: Service1Service ,private service2: Service2Service){
-    console.log(this.service1);
-    console.log(this.service1.name);
-
-    console.log(this.service2);
-    console.log(this.service2.name);
+  constructor(private service1: Service1Service ,private service2: Service2Service){
 
     this.name1 = this.service1.name;
     this.name2 = this.service2.name;
   }
 
-  isShowWorkshop:boolean = false;
-  com2FormData: ICom2formData;
-
-  // redirect
-  onRedirect(){
-    this.router.navigate(['/','data',420], {queryParams:{
-      item1:156,
-      item2:561,
-      item3:'p'
-    }});
+  onRandom(type: number){
+    switch(type){
+      case this.types.name1 :
+        this.service1.name = Math.random().toString();
+        break;
+      case this.types.name2 :
+            this.service2.name = Math.random().toString(;)
+        break;
+      default: break;
+    }
+    this.name1 = this.service1.name;
+    this.name2 = this.service2.name;
   }
-  
+ 
 
+  
 }

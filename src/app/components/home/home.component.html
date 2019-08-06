@@ -5,10 +5,18 @@
   </h1>
   <div class="card-body">
       <h3>Basic Service</h3>
-      <b>{{ name1 }}</b>
+      <b>Name1: {{ name1 }}</b>
       <br>
-      <b>{{ name2 }}</b>
+      <b>Name2: {{ name2 }}</b>
+      <div>
+        <button (click)="onRandom(types.name1)" class="btn btn-secondary">Random Name1</button>
+        <span>&nbsp;</span>
+        <button (click)="onRandom(types.name2)" class="btn btn-secondary">Random Name2</button>
+      </div>
+
       <hr>
+
+  
       
       <div class="row" *ngIf="isShowWorkshop">
           <div class="col-sm">
