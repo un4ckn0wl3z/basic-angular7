@@ -1,3 +1,4 @@
+import { Service2Service } from './../../../services/service2.service';
 import { Component, Input, OnInit, OnChanges, OnDestroy } from "@angular/core";
 import { ICom2formData } from "src/app/interfaces/com2formdata.interface";
 
@@ -8,8 +9,10 @@ import { ICom2formData } from "src/app/interfaces/com2formdata.interface";
   })
 export class Com01Component  {
 
-  @Input('com2FormDataInput') com2FormDataInput: ICom2formData;
-
-
+  com2FormDataInput: ICom2formData;
+  
+  constructor(private service2:Service2Service){
+    this.com2FormDataInput = this.service2.formData;
+  }
 
 }

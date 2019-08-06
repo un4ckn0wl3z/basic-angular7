@@ -5,14 +5,8 @@
   </h1>
   <div class="card-body">
       <h3>Basic Service</h3>
-      <b>Name1: {{ name1 }}</b>
-      <br>
-      <b>Name2: {{ name2 }}</b>
-      <div>
-        <button (click)="onRandom(types.name1)" class="btn btn-secondary">Random Name1</button>
-        <span>&nbsp;</span>
-        <button (click)="onRandom(types.name2)" class="btn btn-secondary">Random Name2</button>
-      </div>
+  
+      
 
       <hr>
 
@@ -20,11 +14,11 @@
       
       <div class="row" *ngIf="isShowWorkshop">
           <div class="col-sm">
-            <app-com01 [com2FormDataInput]="com2FormData"></app-com01>
+            <app-com01></app-com01>
       
           </div>
           <div class="col-sm">
-            <app-com02 (onHideMainComponent)="isShowWorkshop = $event" (onSubmitChange)="com2FormData = $event"></app-com02>
+            <app-com02 (onHideMainComponent)="isShowWorkshop = $event"></app-com02>
           </div>
         </div>
       

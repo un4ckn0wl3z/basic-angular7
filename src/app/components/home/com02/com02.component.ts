@@ -1,3 +1,4 @@
+import { Service2Service } from './../../../services/service2.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -10,11 +11,10 @@ export class Com02Component {
 
   form:FormGroup;
 
-  @Output('onSubmitChange') onSubmitChange = new EventEmitter();
   @Output('onHideMainComponent') onHideMainComponent = new EventEmitter<Boolean>();
 
 
-  constructor(private formBuilder:FormBuilder){
+  constructor(private formBuilder:FormBuilder, private service2:Service2Service){
     this.initForm();
   }
 
@@ -27,8 +27,8 @@ export class Com02Component {
       control.markAsDirty();
     });
     if(this.form.invalid) return;
-    //console.log(this.form.value);
-    this.onSubmitChange.emit(this.form.value);
+    this.service2.onSaveFormData(this.form.value);
+
   }
 
   /** enumerate form array */
