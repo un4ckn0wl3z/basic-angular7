@@ -54,7 +54,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="col-6">
-          <button type="submit" class="btn btn-block btn-warning">Save</button>
+          <button type="submit" *ngIf="!loadingFlag; else loading" class="btn btn-block btn-warning">Save</button>
         </div>
         <div class="col-6">
             <button (click)="onHideMainComponent.emit(false)" type="button" class="btn btn-block btn-danger">Cancel</button>
@@ -63,3 +63,7 @@
     </div>
   </form>
 </div>
+
+<ng-template #loading>
+  <button type="submit" disabled="disabled" class="btn btn-block btn-warning">Saving...</button>
+</ng-template>

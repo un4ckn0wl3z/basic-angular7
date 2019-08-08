@@ -12,7 +12,8 @@ export class Com02Component {
   form:FormGroup;
 
   @Output('onHideMainComponent') onHideMainComponent = new EventEmitter<Boolean>();
-
+  /** loading... */
+  loadingFlag: boolean = false;
 
   constructor(private formBuilder:FormBuilder, private service2:Service2Service){
     this.initForm();
@@ -27,7 +28,14 @@ export class Com02Component {
       control.markAsDirty();
     });
     if(this.form.invalid) return;
-    this.service2.onSaveFormData(this.form.value);
+    this.loadingFlag = true;
+    this.service2.onObserveSaveData(this.form.value)
+    .subscribe( () => {
+      console.log('Save Successful.');
+      this.loadingFlag = false;
+    }, (error) => {
+      this.loadingFlag = false;
+    });
 
   }
 

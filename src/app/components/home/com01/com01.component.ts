@@ -12,7 +12,14 @@ export class Com01Component  {
   com2FormDataInput: ICom2formData;
   
   constructor(private service2:Service2Service){
-    this.com2FormDataInput = this.service2.formData;
+    //this.com2FormDataInput = this.service2.formData;
+    this.service2.getObservFormData()
+    .subscribe(data => {
+      this.com2FormDataInput = data;
+    }, error => {
+      //console.error(error);
+      alert(error.message);
+    });
   }
 
 }
