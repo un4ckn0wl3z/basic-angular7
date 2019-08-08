@@ -43,6 +43,16 @@ export class Service2Service {
     });
   }
 
+  /** promise */
+  getPromiseFormData(){
+    return new Promise<ICom2formData>((resolve, reject) => {
+      resolve(this.formData);
+      //reject({message:'Server error...'});
+    });
+  }
+
+
+
 }
 
 export class FormData implements ICom2formData{

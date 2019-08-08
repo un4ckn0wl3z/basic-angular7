@@ -24,9 +24,9 @@ export class ValidateDirective implements OnChanges {
 
 
   ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log("ngOnChanges>> "+this.control.value);
+   // console.log("ngOnChanges>> "+this.control.value);
     if(!this.control) return;
-      console.log("ngOnChanges 2>> "+this.control.value);
+     // console.log("ngOnChanges 2>> "+this.control.value);
       this.text = this.getErrorMessage();
       this.control.valueChanges.subscribe(() => {
         this.text = this.getErrorMessage();
@@ -38,7 +38,7 @@ export class ValidateDirective implements OnChanges {
   }  // check validate message
 private getErrorMessage(){
   const control = this.control;
-  console.log("AAA")
+  //console.log("AAA")
   if(control && control.invalid){
     const error = Object.keys(control.errors) ;
     //console.log(this.errorMessage[error[0]]);
