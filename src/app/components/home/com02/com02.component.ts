@@ -34,6 +34,7 @@ export class Com02Component {
       console.log('Save Successful.');
       this.loadingFlag = false;
     }, (error) => {
+      alert(error.message);
       this.loadingFlag = false;
     });
 

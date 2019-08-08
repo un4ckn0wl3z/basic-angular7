@@ -24,6 +24,7 @@ export class Service2Service {
   onObserveSaveData(formData: ICom2formData){
     return new Observable(observe => {
       setTimeout(() => {
+        if(formData.firstname == 'Testing') return observe.error({message: 'Do not using "Testing" for your firstname.'});
         this.onSaveFormData(formData);
         observe.next();
       }, 1000);
