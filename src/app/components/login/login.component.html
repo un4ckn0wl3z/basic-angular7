@@ -6,14 +6,16 @@
       <div class="col-4">
         <h4>login</h4>
         <hr>
-        <form action="">
+        <form [formGroup]="form" (submit)="onSubmit()">
           <div class="form-group">
             <label for="">username</label>
-            <input type="text" class="form-control">
+            <input formControlName="username" type="text" class="form-control">
+            <div [appValidate]="form.get('username')" ></div>
           </div>
           <div class="form-group">
             <label for="">password</label>
-            <input type="password" class="form-control">
+            <input formControlName="password" type="password" class="form-control">
+            <div [appValidate]="form.get('password')" ></div>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-warning btn-block">login</button>
