@@ -21,11 +21,7 @@ export class Service2Service {
   /** fetch json placeholder */
   getAlbum(){
     return this.httpClient.get<IAlbum[]>('https://jsonplaceholder.typicode.com/albums').pipe(map(value => {
-        return value.map((item)=>{
-            item.id+=100;
-            item.userId+=10;
-            return item;
-        });
+        return value
     }));
   }
 
