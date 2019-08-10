@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ICom2formData } from '../interfaces/com2formdata.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,20 @@ export class Service2Service {
 
   name: string = 'Data form service2';
   private formData: ICom2formData = new FormData();
+  private isShowWorkshop : boolean = true;
+  public isShowWorkshopSubject = new Subject<boolean>();
 
   constructor() { }
+
+  /** */
+  getShowWorksop(): boolean{
+    return this.isShowWorkshop;
+  }
+
+  setShowWorksop(flag:boolean): void{
+    this.isShowWorkshop = flag;
+    this.isShowWorkshopSubject.next(this.isShowWorkshop);
+  }
 
   // save to object
   private onSaveFormData(formData: ICom2formData){

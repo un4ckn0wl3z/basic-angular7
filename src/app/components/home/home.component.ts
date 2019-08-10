@@ -11,8 +11,15 @@ import { ICom2formData } from 'src/app/interfaces/com2formdata.interface';
 
 })
 export class HomeComponent  {
+  isShowWorkshop:boolean = this.service2.getShowWorksop();
+  constructor(private service2: Service2Service){
+    this.service2.isShowWorkshopSubject.subscribe(data => {
+      //console.log(data);
+      this.isShowWorkshop = data;
+    });
+  }
 
-  isShowWorkshop:boolean = true;
+ 
  
   
   

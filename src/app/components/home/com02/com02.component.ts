@@ -11,7 +11,7 @@ export class Com02Component {
 
   form:FormGroup;
 
-  @Output('onHideMainComponent') onHideMainComponent = new EventEmitter<Boolean>();
+  //@Output('onHideMainComponent') onHideMainComponent = new EventEmitter<Boolean>();
   /** loading... */
   loadingFlag: boolean = false;
 
@@ -55,6 +55,13 @@ export class Com02Component {
     
 
   }
+
+  /** hide */
+  onHide(){
+    this.service2.setShowWorksop(false);
+  }
+
+
 
   /** enumerate form array */
   get getPhonesForm(){

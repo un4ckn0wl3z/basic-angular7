@@ -57,7 +57,7 @@
           <button type="submit" *ngIf="!loadingFlag; else loading" class="btn btn-block btn-warning">Save</button>
         </div>
         <div class="col-6">
-            <button (click)="onHideMainComponent.emit(false)" type="button" class="btn btn-block btn-danger">Cancel</button>
+            <button (click)="onHide()" type="button" class="btn btn-block btn-danger">Cancel</button>
           </div>
       </div>
     </div>
