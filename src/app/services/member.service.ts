@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class MemberService {
 
   private memberItems: IMember[] = [];
-  private memberLogin: IMember = { "id": 0.8846598125483913, "firstname": "Anuwat", "lastname": "Khongchuai", "username": "un4ck", "password": "1234" } ;
+  private memberLogin: IMember;
 
   constructor() { }
 

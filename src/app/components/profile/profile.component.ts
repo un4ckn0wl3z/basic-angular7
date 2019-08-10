@@ -30,7 +30,7 @@ export class ProfileComponent {
     onLogout(){
        this.memberService.onLogout().subscribe(data => {
            alert(data);
-           this.router.navigate(['/']);
+           this.router.navigate(['/','login']);
        });
     }
 
