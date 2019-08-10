@@ -43,7 +43,7 @@ export class Service2Service {
     });
   }
 
-  /** promise */
+  /** get data via promise */
   getPromiseFormData(){
     return new Promise<ICom2formData>((resolve, reject) => {
       resolve(this.formData);
@@ -51,6 +51,15 @@ export class Service2Service {
     });
   }
 
+  /** sagve data via promise */
+  onPromiseSaveFormData(formData: ICom2formData){
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.onSaveFormData(formData);
+        resolve();
+      },2000);
+    });
+  }
 
 
 }

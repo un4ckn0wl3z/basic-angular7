@@ -29,14 +29,15 @@ export class Com02Component {
     });
     if(this.form.invalid) return;
     this.loadingFlag = true;
-    this.service2.onObserveSaveData(this.form.value)
-    .subscribe( () => {
-      console.log('Save Successful.');
-      this.loadingFlag = false;
-    }, (error) => {
+    this.service2.onPromiseSaveFormData(this.form.value).then(() =>{
+      console.log("saved.");
+    }, error => {
       alert(error.message);
+      console.log("error.");
+    }).finally(() =>{
       this.loadingFlag = false;
     });
+    
 
   }
 
