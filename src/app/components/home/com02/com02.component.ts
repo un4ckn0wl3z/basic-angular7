@@ -20,7 +20,7 @@ export class Com02Component {
   }
 
   /** Submit */
-  onSubmit(){
+  async onSubmit(){
     this.form.get('gender').markAsDirty();
     this.form.get('firstname').markAsDirty();
     this.form.get('lastname').markAsDirty();
@@ -28,6 +28,19 @@ export class Com02Component {
       control.markAsDirty();
     });
     if(this.form.invalid) return;
+    this.loadingFlag = true;
+    try {
+      await this.service2.onPromiseSaveFormData(this.form.value);
+      console.log("saved.");
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      this.loadingFlag = false;
+    }
+
+
+
+
     // this.loadingFlag = true;
     // this.service2.onPromiseSaveFormData(this.form.value).then(() =>{
     //   console.log("saved.");
@@ -38,7 +51,7 @@ export class Com02Component {
     //   this.loadingFlag = false;
     // });
 
-    
+
     
 
   }

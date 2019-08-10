@@ -55,6 +55,7 @@ export class Service2Service {
   onPromiseSaveFormData(formData: ICom2formData){
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        if(formData.firstname == 'Testing') return reject({message: 'Do not using "Testing" for your firstname.'});
         this.onSaveFormData(formData);
         resolve();
       },2000);
