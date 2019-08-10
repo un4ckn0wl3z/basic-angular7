@@ -10,7 +10,7 @@ export class Service2Service {
 
   name: string = 'Data form service2';
   private formData: ICom2formData = new FormData();
-  private isShowWorkshop : boolean = true;
+  private isShowWorkshop : boolean = false;
   public isShowWorkshopSubject = new Subject<boolean>();
 
   constructor() { }
