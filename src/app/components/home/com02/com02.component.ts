@@ -33,7 +33,7 @@ export class Com02Component {
       await this.service2.onPromiseSaveFormData(this.form.value);
       console.log("saved.");
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     } finally {
       this.loadingFlag = false;
     }
