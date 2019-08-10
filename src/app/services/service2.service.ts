@@ -22,7 +22,13 @@ export class Service2Service {
   getAlbum(){
     return this.httpClient.get<IAlbum[]>('https://jsonplaceholder.typicode.com/albums').pipe(map(value => {
         return value
-    }));
+    })); 
+  }
+
+  /** fetch json from php custom server */
+  getJsonFromPhp(){
+    return this.httpClient.get<IAlbum[]>('http://localhost:3000/server.php');
+
   }
 
 

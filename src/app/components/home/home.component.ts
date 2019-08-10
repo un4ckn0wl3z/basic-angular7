@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Service2Service } from './../../services/service2.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit  {
   isShowWorkshop:boolean = this.service2.getShowWorksop();
   albums: IAlbum[] = [];
 
-  constructor(private service2: Service2Service){
+  constructor(private service2: Service2Service, private httpClient:HttpClient){
     this.onInitData();
   }
 
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    this.service2.getAlbum().subscribe(res => {
+    this.service2.getJsonFromPhp().subscribe(res => {
       this.albums = res;
     });
   }
