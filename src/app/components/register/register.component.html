@@ -4,46 +4,50 @@
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">
-        <form action="">
+        <form [formGroup]="form" (submit)="saveFormData()">
           <h4>register</h4>
           <hr>
           <div class="row">
             <div class="col-6">
               <div class="form-group">
                 <label for="">firstname</label>
-                <input type="text" class="form-control">
+                <input formControlName="firstname" type="text" class="form-control">
+                <div [appValidate]="form.get('firstname')"></div>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
                 <label for="">lastname</label>
-                <input type="text" class="form-control">
+                <input formControlName="lastname" type="text" class="form-control">
+                <div [appValidate]="form.get('lastname')" ></div>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
                 <label for="">username</label>
-                <input type="text" class="form-control">
+                <input formControlName="username" type="text" class="form-control">
+                <div [appValidate]="form.get('username')" ></div>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
                 <label for="">password</label>
-                <input type="password" class="form-control">
+                <input formControlName="password"  type="password" class="form-control">
+                <div [appValidate]="form.get('password')" ></div>
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="confirm">
+              <input type="checkbox" class="form-check-input" id="confirm" formControlName="confirm">
               <label for="confirm" class="form-check-label">confirm</label>
             </div>
           </div>
           <hr>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-warning btn-block">register</button>
+            <button [disabled]="!form.value['confirm']" type="submit" class="btn btn-warning btn-block">register</button>
           </div>
 
           <div class="form-group text-center">
