@@ -14,3 +14,12 @@ export class RegisterModel implements IMember {
     password: string;
     username: string;
 }
+
+export class LoginModel implements IMember {
+    id: number;
+    confirm: boolean;
+    firstname: string;
+    lastname: string;
+    password: string;
+    username: string;
+}

@@ -18,7 +18,7 @@
             <div [appValidate]="form.get('password')" ></div>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-warning btn-block">login</button>
+            <button *ngIf="!loadingFlag; else loading" type="submit" class="btn btn-warning btn-block">login</button>
           </div>
           <div class="form-group text-center">
              <a [routerLink]="['/','register']"><u>register</u></a>
@@ -30,3 +30,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #loading>
+    <button disabled="disabled" type="submit" class="btn btn-warning btn-block">logging to...</button>
+</ng-template>

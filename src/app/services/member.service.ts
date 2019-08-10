@@ -1,3 +1,4 @@
+import { LoginModel } from './../interfaces/member.interface';
 import { Injectable } from '@angular/core';
 import { IMember, RegisterModel } from '../interfaces/member.interface';
 import { Observable } from 'rxjs';
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs';
 export class MemberService {
 
   private memberItems: IMember[] = [];
+  private memberLogin: IMember = { "id": 0.8846598125483913, "firstname": "Anuwat", "lastname": "Khongchuai", "username": "un4ck", "password": "1234" } ;
 
   constructor() { }
 
@@ -36,4 +38,42 @@ export class MemberService {
       observe.next(this.memberItems);
     });
   }
+
+  /** login */
+  onLogin(value: LoginModel){
+    return new Observable(obseve => {
+      setTimeout(()=>{
+        const memberLogin = this.memberItems.find(member => {
+          return member.username == value.username && member.password == value.password;
+        });
+        if(!memberLogin){
+          return obseve.error({message: 'incorrect usename or password.'});
+        }
+        this.memberLogin = memberLogin;
+        obseve.next(this.memberLogin);
+        console.log(value);
+      },1000);
+    })
+  }
+
+  /** fetch user loggedin */
+  getMemberLogin():Observable<IMember>{
+    return new Observable<IMember>(observe => {
+      setTimeout(() => {
+        observe.next(this.memberLogin);
+      }); 
+    });
+  }
+
+
+  /** logout */
+  onLogout(){
+    return new Observable(observe => {
+     setTimeout(() => {
+       this.memberLogin = null;
+      observe.next('Logout completed.');
+     });
+    });
+  }
+
 }
