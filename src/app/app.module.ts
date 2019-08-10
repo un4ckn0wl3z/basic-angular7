@@ -18,6 +18,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DataComponent } from './components/data/data.component';
 import { NavbarComponent } from './shares/navbar/navbar.component';
 import { ActivateGuard } from './guards/activate.guard';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { ActivateGuard } from './guards/activate.guard';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ActivateGuard],
   bootstrap: [AppComponent]

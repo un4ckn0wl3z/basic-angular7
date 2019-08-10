@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ICom2formData } from '../interfaces/com2formdata.interface';
 import { Observable, Subject } from 'rxjs';
-
+import { IAlbum } from '../interfaces/http-client.interface';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,21 @@ export class Service2Service {
   private isShowWorkshop : boolean = false;
   public isShowWorkshopSubject = new Subject<boolean>();
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
+
+
+  /** fetch json placeholder */
+  getAlbum(){
+    return this.httpClient.get<IAlbum[]>('https://jsonplaceholder.typicode.com/albums').pipe(map(value => {
+        return value.map((item)=>{
+            item.id+=100;
+            item.userId+=10;
+            return item;
+        });
+    }));
+  }
+
+
 
   /** */
   getShowWorksop(): boolean{
