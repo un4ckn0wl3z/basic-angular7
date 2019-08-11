@@ -3,7 +3,8 @@ export interface IMember {
     firstname: string,
     lastname: string,
     password: string,
-    username: string
+    username: string,
+    createdDate?: Date
 }
 
 export class RegisterModel implements IMember {
