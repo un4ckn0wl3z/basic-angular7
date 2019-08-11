@@ -31,6 +31,11 @@ export class Service2Service {
 
   }
 
+  getJsonFromNode(){
+    return this.httpClient.get<IAlbum[]>('http://localhost:3000');
+
+  }
+
 
 
   /** */
