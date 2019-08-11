@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class MemberService {
 
   //private memberItems: IMember[] = [];
-  private memberLogin: IMember;
+  private memberLogin: IMember = JSON.parse(localStorage.getItem('memberLogin') || null);
   private address: string = 'http://localhost:3000/api/members';
   constructor(private httpClient:HttpClient) { }
 
@@ -54,6 +54,7 @@ export class MemberService {
 
       this.httpClient.get<IMember>(`${this.address}/findOne?filter[where][username]=${value.username}&filter[where][password]=${value.password}`).subscribe( res => {
         this.memberLogin = res;
+        localStorage.setItem('memberLogin',JSON.stringify(this.memberLogin));
         observe.next(this.memberLogin);
       }, err => {
         observe.error({message:'incorrent username or password.'});
@@ -65,9 +66,9 @@ export class MemberService {
   /** fetch user loggedin */
   getMemberLogin():Observable<IMember>{
     return new Observable<IMember>(observe => {
-      setTimeout(() => {
+     
         observe.next(this.memberLogin);
-      }); 
+     
     });
   }
 
@@ -75,10 +76,11 @@ export class MemberService {
   /** logout */
   onLogout(){
     return new Observable(observe => {
-     setTimeout(() => {
-       this.memberLogin = null;
+    
+      this.memberLogin = null;
+      localStorage.removeItem('memberLogin');
       observe.next('Logout completed.');
-     });
+     
     });
   }
 
