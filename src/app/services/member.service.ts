@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class MemberService {
 
-  private memberItems: IMember[] = [];
+  //private memberItems: IMember[] = [];
   private memberLogin: IMember;
   private address: string = 'http://localhost:3000/api/members';
   constructor(private httpClient:HttpClient) { }
@@ -35,23 +35,7 @@ export class MemberService {
        
 
       });
-  
 
-
-
-      // setTimeout(()=>{
-      //   if( this.memberItems.find(m => m.username == value.username) ) return observe.error({message: 'this username already used.'});
-      //   const model: IMember = {
-      //     id: Math.random(),
-      //     firstname: value.firstname,
-      //     lastname: value.lastname,
-      //     username: value.username,
-      //     password: value.password
-      //   }
-      //   this.memberItems.push(model);
-      //   observe.next(model);
-      //   //console.log(value);
-      // },2000);
     });
   }
 
@@ -66,19 +50,16 @@ export class MemberService {
 
   /** login */
   onLogin(value: LoginModel){
-    return new Observable(obseve => {
-      setTimeout(()=>{
-        const memberLogin = this.memberItems.find(member => {
-          return member.username == value.username && member.password == value.password;
-        });
-        if(!memberLogin){
-          return obseve.error({message: 'incorrect usename or password.'});
-        }
-        this.memberLogin = memberLogin;
-        obseve.next(this.memberLogin);
-        console.log(value);
-      },1000);
-    })
+    return new Observable((observe) => {
+
+      this.httpClient.get<IMember>(`${this.address}/findOne?filter[where][username]=${value.username}&filter[where][password]=${value.password}`).subscribe( res => {
+        this.memberLogin = res;
+        observe.next(this.memberLogin);
+      }, err => {
+        observe.error({message:'incorrent username or password.'});
+      });
+
+    });
   }
 
   /** fetch user loggedin */

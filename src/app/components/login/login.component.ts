@@ -18,11 +18,12 @@ export class LoginComponent implements OnInit {
 
   }
 
-  private onSubmit(){
+  onSubmit(){
     this.form.get('username').markAsDirty();
     this.form.get('password').markAsDirty();
     if(this.form.invalid) return;
     this.loadingFlag = true;
+    console.log(this.form.value);
     this.memberService.onLogin(this.form.value).subscribe((data) => {
       console.log(data);
       this.loadingFlag = false;
