@@ -1,5 +1,5 @@
 export interface IMember {
-    id: number,
+    id?: number,
     firstname: string,
     lastname: string,
     password: string,
