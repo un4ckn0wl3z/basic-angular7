@@ -23,11 +23,11 @@ export class RegisterComponent implements OnInit {
   /** register form data */
   private createFormData(){
     this.form = this.builder.group({
-      firstname: ['Anuwat',[Validators.required]],
-      lastname: ['Khongchuai',[Validators.required]],
-      username: ['un4ck',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
-      password: ['1234',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
-      confirm: [true]
+      firstname: ['',[Validators.required]],
+      lastname: ['',[Validators.required]],
+      username: ['',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
+      password: ['',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
+      confirm: [false]
     });
   }
 
