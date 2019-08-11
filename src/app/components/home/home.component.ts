@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    this.service2.getJsonFromPhp().subscribe(res => {
+    this.service2.getAlbum().subscribe(res => {
       this.albums = res;
     });
   }
