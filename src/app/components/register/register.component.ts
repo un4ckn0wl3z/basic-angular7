@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   }
 
   /** handle form data */
-  private saveFormData(){
+   saveFormData(){
     this.form.get('firstname').markAsDirty();
     this.form.get('lastname').markAsDirty();
     this.form.get('username').markAsDirty();
