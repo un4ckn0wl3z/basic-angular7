@@ -31,7 +31,6 @@ import { SharesModule } from './shares/shares.module';
     Directive2Directive,
     Pipe1Pipe,
     Pipe2Pipe,
-    ValidateDirective,
     HomeComponent,
     RegisterComponent,
     LoginComponent,
@@ -43,8 +42,6 @@ import { SharesModule } from './shares/shares.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     SharesModule
   ],

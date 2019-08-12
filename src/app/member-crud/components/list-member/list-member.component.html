@@ -1,3 +1,42 @@
-<app-panel>
-  
+<app-panel header="Manage members">
+  <div class="row">
+    <div class="col">
+        <div class="form-group">
+            <h5>Member list</h5>
+          </div>
+    </div>
+    <div class="col text-right">
+        <div class="form-group">
+           <a [routerLink]="['/','manage-member','create']" class="btn btn-primary">add member</a>
+          
+          </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of memberItems">
+          <td>{{ member.id }}</td>
+          <td>{{ member.firstname }}</td>
+          <td>{{ member.lastname }}</td>
+          <td>{{ member.username }}</td>
+          <td>{{ member.password }}</td>
+          <td class="text-right">
+            <a href="" class="btn btn-warning mr-2">edit</a>
+            <a href="" class="btn btn-danger">delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </app-panel>

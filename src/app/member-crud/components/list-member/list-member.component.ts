@@ -1,3 +1,5 @@
+import { IMember } from './../../../interfaces/member.interface';
+import { MemberService } from './../../../services/member.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListMemberComponent implements OnInit {
 
-  constructor() { }
+  memberItems : IMember[] = [];
+
+  constructor(private memberService: MemberService) { 
+    this.initialLoadData();
+  }
 
   ngOnInit() {
+  }
+
+  /** load members from api */
+  private initialLoadData(){
+    this.memberService.getMembers().subscribe(members => {
+      this.memberItems = members;
+    });
   }
 
 }
