@@ -1,39 +1,34 @@
-<div class="card">
-  <h3 class="card-header">Profile page</h3>
-  <div class="card-body">
+<app-panel header="Profile page">
+<table class="mt-4 mb-4" *ngIf="member">
+  <tr>
+    <th>Member ID</th>
+    <td> : </td>
+    <td>{{member.id}}</td>
+  </tr>
 
-    <table class="mt-4 mb-4" *ngIf="member">
-      <tr>
-        <th>Member ID</th>
-        <td> : </td>
-        <td>{{member.id}}</td>
-      </tr>
+  <tr>
+    <th>Firstname</th>
+    <td> : </td>
+    <td>{{member.firstname}}</td>
+  </tr>
 
-      <tr>
-        <th>Firstname</th>
-        <td> : </td>
-        <td>{{member.firstname}}</td>
-      </tr>
+  <tr>
+    <th>Lastname</th>
+    <td> : </td>
+    <td>{{member.lastname}}</td>
+  </tr>
 
-      <tr>
-        <th>Lastname</th>
-        <td> : </td>
-        <td>{{member.lastname}}</td>
-      </tr>
+  <tr>
+    <th>Username</th>
+    <td> : </td>
+    <td>{{member.username}}</td>
+  </tr>
 
-      <tr>
-        <th>Username</th>
-        <td> : </td>
-        <td>{{member.username}}</td>
-      </tr>
+  <tr>
+    <th>Logout</th>
+    <td>:</td>
+    <td><button (click)="onLogout()" class="btn btn-danger btn-sm">Log out</button></td>
+  </tr>
 
-      <tr>
-        <th>Logout</th>
-        <td>:</td>
-        <td><button (click)="onLogout()" class="btn btn-danger btn-sm">Log out</button></td>
-      </tr>
-
-    </table>
-
-  </div>
-</div>
+</table>
+</app-panel>

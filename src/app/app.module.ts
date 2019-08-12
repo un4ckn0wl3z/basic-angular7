@@ -19,6 +19,7 @@ import { DataComponent } from './components/data/data.component';
 import { NavbarComponent } from './shares/navbar/navbar.component';
 import { ActivateGuard } from './guards/activate.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { SharesModule } from './shares/shares.module';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharesModule
   ],
   providers: [ActivateGuard],
   bootstrap: [AppComponent]

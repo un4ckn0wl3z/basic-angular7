@@ -2,14 +2,16 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [PanelComponent],
     imports: [
         CommonModule,
         BsDropdownModule.forRoot()
-    ]
+    ],
+    exports:[PanelComponent]
 })
-export class ShareModule {
+export class SharesModule {
 
 }

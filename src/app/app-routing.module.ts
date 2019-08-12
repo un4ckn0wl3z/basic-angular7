@@ -15,8 +15,9 @@ const routes: Routes = [
   {path:'register',component: RegisterComponent, canActivate: [UnauthGuard]},
   {path:'login',component: LoginComponent, canActivate: [UnauthGuard]},
   {path:'profile',component: ProfileComponent, canActivate: [AuthenGuard]},
-  {path:'data',component: DataComponent},
+  {path:'manage-member',loadChildren: './member-crud/member-crud.module#MemberCrudModule', canActivate: [AuthenGuard]},
 
+  
   {path:'**',redirectTo: '',pathMatch:'full'}
 ];
 

@@ -1,0 +1,7 @@
+<div class="card">
+  <h3 class="card-header" *ngIf="header">{{header}}</h3>
+  <div class="card-body">
+    <ng-content></ng-content>
+  </div>
+  <div class="card-footer" *ngIf="footer">{{footer}}</div>
+</div>
