@@ -32,8 +32,8 @@
           <td>{{ member.username }}</td>
           <td>{{ member.password }}</td>
           <td class="text-right">
-            <a href="" class="btn btn-warning mr-2">edit</a>
-            <a href="" class="btn btn-danger">delete</a>
+              <a [routerLink]="['/','manage-member','update', member.id]" class="btn btn-warning mr-2">edit</a>
+            <button (click)="onDeleteUser(member)" class="btn btn-danger">delete</button>
           </td>
         </tr>
       </tbody>

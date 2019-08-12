@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'',component: ListMemberComponent}
-  {path:'create',component: FormMemberComponent}
+  {path:'',component: ListMemberComponent},
+  {path:'create',component: FormMemberComponent},
+  {path:'update/:id',component: FormMemberComponent}
+
 
 ];
 

@@ -4,7 +4,8 @@
     <div class="col-6">
       <form (submit)="onSubmit()" [formGroup]="form">
         <div class="form-group">
-          <h5>add new member</h5>
+          <h5 *ngIf="!id">add new member</h5>
+          <h5 *ngIf="id"> update member</h5>
         </div>
         <hr>
         <div class="row">
@@ -27,7 +28,7 @@
           <div class="col">
             <div class="form-group">
               <label for="">Username :</label>
-              <input formControlName="username" type="text" class="form-control">
+              <input [readOnly]="id" formControlName="username" type="text" class="form-control">
               <div [appValidate]="form.get('firstname')"></div>
             </div>
           </div>

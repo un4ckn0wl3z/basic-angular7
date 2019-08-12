@@ -1,7 +1,7 @@
 import { MemberService } from './../../../services/member.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-member',
@@ -12,10 +12,12 @@ export class FormMemberComponent implements OnInit {
 
   form:FormGroup;
   loadingFlag: boolean = false;
+  id:number;
 
-
-  constructor(private builder: FormBuilder, private memberService: MemberService,private router: Router) { 
+  constructor(private builder: FormBuilder, private memberService: MemberService,private router: Router,
+    private activateRoute:ActivatedRoute) { 
     this.initFormData();
+    this.initUpdateMember();
   }
 
   ngOnInit() {
@@ -31,15 +33,26 @@ export class FormMemberComponent implements OnInit {
     if(this.form.invalid) return alert('Somthing wrong.');
     this.loadingFlag = true;
     //console.log(this.form.value);
-    this.memberService.onRegister( this.form.value).subscribe(res => {
-      console.log(res);
-      this.loadingFlag = false;
-      alert('Success add new user.');
-      this.router.navigate(['/','manage-member']);
-    }, err => {
-      this.loadingFlag = false;
-      alert(err.message);
-    });
+    if(isNaN(this.id)){
+      this.memberService.onRegister( this.form.value).subscribe(res => {
+        console.log(res);
+        this.loadingFlag = false;
+        //alert('Success add new user.');
+        this.router.navigate(['/','manage-member']);
+      }, err => {
+        this.loadingFlag = false;
+        alert(err.message);
+      });
+    }else{
+      this.memberService.onUpdateMember(this.id, this.form.value).subscribe(res => {
+        this.loadingFlag = false;
+        this.router.navigate(['/','manage-member']);
+      }, err => {
+        this.loadingFlag = false;
+        alert(err.message);
+      });
+    }
+
   }
 
   private initFormData(){
@@ -48,6 +61,20 @@ export class FormMemberComponent implements OnInit {
       lastname: ['',[Validators.required]],
       username: ['',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
       password: ['',[Validators.required,Validators.pattern(/^[A-z0-9]{3,10}$/)]],
+    });
+  }
+
+  private initUpdateMember(){
+    this.id =  parseInt(this.activateRoute.snapshot.params['id']);
+    if(isNaN(this.id )) return;
+    this.memberService.getMemberById(this.id).subscribe(res => {
+      this.form.controls['firstname'].setValue(res.firstname);
+      this.form.controls['lastname'].setValue(res.lastname);
+      this.form.controls['username'].setValue(res.username);
+      this.form.controls['password'].setValue(res.password);
+      //console.log(res);
+    }, err => {
+      this.router.navigate(['/','manage-member']);
     });
   }
 

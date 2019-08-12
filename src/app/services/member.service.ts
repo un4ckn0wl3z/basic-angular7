@@ -39,6 +39,25 @@ export class MemberService {
     });
   }
 
+
+  /** get member data by id */
+  getMemberById(id){
+    return this.httpClient.get<IMember>(`${this.address}/${id}`);
+  }
+
+/** uupdate member */
+onUpdateMember(id:number, value:RegisterModel){
+  //console.log(value);
+  return this.httpClient.put<IMember>(`${this.address}/${id}`, value);
+
+}
+
+ /** delete user */
+ onDelete(id:number){
+  return  this.httpClient.delete<{count:number}>(`${this.address}/${id}`);
+}
+
+
   /** show all memers */
   getMembers(){
     // return new Observable<IMember[]>(observe => {

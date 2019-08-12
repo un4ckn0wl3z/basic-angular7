@@ -18,6 +18,17 @@ export class ListMemberComponent implements OnInit {
   ngOnInit() {
   }
 
+  /** delete user */
+  onDeleteUser(user:IMember){
+    if(!confirm('Are u sure to delete this user?')) return;
+    this.memberService.onDelete(user.id).subscribe(res =>{
+      this.initialLoadData();
+    }, err => {
+      alert(err.message);
+    });
+    //console.log(user);
+  }
+
   /** load members from api */
   private initialLoadData(){
     this.memberService.getMembers().subscribe(members => {
