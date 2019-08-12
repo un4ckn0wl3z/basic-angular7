@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from './../interfaces/member.interface';
 import { Injectable } from '@angular/core';
@@ -11,7 +12,7 @@ export class MemberService {
 
   //private memberItems: IMember[] = [];
   private memberLogin: IMember = JSON.parse(localStorage.getItem('memberLogin') || null);
-  private address: string = 'http://localhost:3000/api/members';
+  private address: string = environment.address;
   constructor(private httpClient:HttpClient) { }
 
   /** register */
