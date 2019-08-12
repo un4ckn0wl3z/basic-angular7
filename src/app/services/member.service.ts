@@ -34,6 +34,8 @@ export class MemberService {
         });
        
 
+      },err =>{
+        observe.error(err);
       });
 
     });
